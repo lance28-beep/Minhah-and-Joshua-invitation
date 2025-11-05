@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Loader2, Mail, Calendar, MessageSquare, Heart, Sparkles, Star, User } from "lucide-react"
+import { Loader2, Mail, MessageSquare, Heart, Sparkles, User } from "lucide-react"
 
 interface Guest {
   Name: string
@@ -74,26 +74,21 @@ export function BookOfGuests() {
   return (
     <div 
       id="guests" 
-      className="relative bg-gradient-to-b from-[#402921] via-[#583016] to-[#402921] py-20 md:py-32 overflow-hidden"
+      className="relative bg-[#8096AE] py-20 md:py-32 overflow-hidden"
     >
       {/* Decorative background elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Floating geometric shapes */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-[#BB8A3D]/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-20 right-20 w-24 h-24 bg-[#CDAC77]/15 rounded-full blur-lg animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-20 left-20 w-40 h-40 bg-[#BB8A3D]/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute bottom-10 right-10 w-20 h-20 bg-[#CDAC77]/12 rounded-full blur-xl animate-pulse" style={{ animationDelay: '0.5s' }} />
+        <div className="absolute top-10 left-10 w-32 h-32 bg-[#818D77]/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-20 right-20 w-24 h-24 bg-[#8096AE]/25 rounded-full blur-lg animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-20 left-20 w-40 h-40 bg-[#818D77]/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-10 right-10 w-20 h-20 bg-[#8096AE]/25 rounded-full blur-xl animate-pulse" style={{ animationDelay: '0.5s' }} />
         
         {/* Decorative lines */}
-        <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#BB8A3D]/35 to-transparent" />
-        <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#CDAC77]/30 to-transparent" />
+        <div className="absolute top-1/4 left-0 w-full h-px bg-[#818D77]/30" />
+        <div className="absolute bottom-1/4 left-0 w-full h-px bg-[#818D77]/25" />
         
-        {/* Corner decorative elements */}
-        <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-br-3xl" />
-        <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-bl-3xl" />
-        <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-tr-3xl" />
-        <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-tl-3xl" />
-        {/* Decorative corner images */}
+        {/* Decorative corner images (all corners) */}
         <img
           src="/decoration/corner_right-top.png"
           alt=""
@@ -106,19 +101,31 @@ export function BookOfGuests() {
           aria-hidden="true"
           className="absolute bottom-0 left-0 w-28 sm:w-36 md:w-48 lg:w-56 opacity-70 rotate-180 select-none"
         />
+        <img
+          src="/decoration/corner_right-top.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute top-0 left-0 w-28 sm:w-36 md:w-48 lg:w-56 opacity-80 -scale-x-100 select-none"
+        />
+        <img
+          src="/decoration/corner_right-top.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute bottom-0 right-0 w-28 sm:w-36 md:w-48 lg:w-56 opacity-80 -scale-y-100 select-none"
+        />
       </div>
 
       {/* Enhanced title section */}
       <div className="relative z-10 text-center mb-8 md:mb-20">
         {/* Decorative ornaments */}
         <div className="flex items-center justify-center gap-6 mb-6">
-          <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#BB8A3D]/60 to-[#CDAC77]/30" />
+          <div className="w-16 h-px bg-[#D0D2D1]/60" />
           <div className="flex gap-2">
-            <div className="w-2 h-2 bg-[#BB8A3D] rounded-full" />
-            <div className="w-1 h-1 bg-[#FFF6E7] rounded-full self-center" />
-            <div className="w-2 h-2 bg-[#BB8A3D] rounded-full" />
+            <div className="w-2 h-2 bg-[#8096AE] rounded-full" />
+            <div className="w-1 h-1 bg-[#B8B8B8] rounded-full self-center" />
+            <div className="w-2 h-2 bg-[#8096AE] rounded-full" />
           </div>
-          <div className="w-16 h-px bg-gradient-to-l from-transparent via-[#BB8A3D]/60 to-[#CDAC77]/30" />
+          <div className="w-16 h-px bg-[#D0D2D1]/60" />
         </div>
 
         <div className="inline-flex items-center gap-1 md:gap-3 mb-2 md:mb-4">
@@ -127,10 +134,10 @@ export function BookOfGuests() {
           <Sparkles className="text-[#FFF6E7]/80 h-3 w-3 md:h-6 md:w-6 animate-pulse" style={{ animationDelay: '0.5s' }} />
         </div>
         
-        <h2 className="text-5xl sm:text-4xl md:text-7xl lg:text-8xl font-serif font-bold text-[#FFF6E7] mb-3 md:mb-6 text-balance drop-shadow-2xl relative">
-          <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-br from-[#BB8A3D] via-[#CDAC77] to-[#FFF6E7]">Book of Guests</span>
+        <h2 className="text-5xl sm:text-4xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-3 md:mb-6 text-balance drop-shadow-2xl relative">
+          <span className="relative z-10 text-white">Book of Guests</span>
           {/* Text glow effect */}
-          <span className="absolute inset-0 text-[#BB8A3D]/20 blur-2xl -z-10">Book of Guests</span>
+          <span className="absolute inset-0 text-[#B8B8B8]/30 blur-2xl -z-10">Book of Guests</span>
         </h2>
         
         <p className="text-sm md:text-xl text-[#FFF6E7]/90 font-sans font-light max-w-2xl mx-auto px-4 leading-relaxed">
@@ -139,9 +146,9 @@ export function BookOfGuests() {
 
         {/* Bottom decorative ornaments */}
         <div className="flex items-center justify-center gap-6 mt-8">
-          <div className="w-12 h-px bg-gradient-to-r from-transparent via-[#CDAC77]/40 to-[#FFF6E7]/20" />
-          <div className="w-1 h-1 bg-[#CDAC77] rounded-full" />
-          <div className="w-12 h-px bg-gradient-to-l from-transparent via-[#CDAC77]/40 to-[#FFF6E7]/20" />
+          <div className="w-12 h-px bg-[#818D77]/40" />
+          <div className="w-1 h-1 bg-[#818D77] rounded-full" />
+          <div className="w-12 h-px bg-[#818D77]/40" />
         </div>
       </div>
 
@@ -151,27 +158,24 @@ export function BookOfGuests() {
         <div className="text-center mb-6 sm:mb-12 px-3 sm:px-4 md:px-6 lg:px-8">
           <div className="relative max-w-3xl mx-auto">
             {/* Main card */}
-            <div className="relative bg-gradient-to-br from-[#FFF6E7] via-white to-[#FFF6E7] backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 border-2 border-[#BB8A3D]/30 shadow-[0_8px_24px_rgba(64,41,33,0.2)]">
+            <div className="relative bg-[#8096AE]/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 border-2 border-[#818D77] shadow-[0_8px_24px_rgba(0,0,0,0.2)] ring-1 ring-[#8096AE]/40">
               {/* Decorative corner accents */}
-              <div className="absolute -top-1 -left-1 w-4 h-4 bg-gradient-to-br from-[#D1AB6D] to-[#E0CFB5] rounded-full blur-sm opacity-70" />
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-bl from-[#D1AB6D] to-[#E0CFB5] rounded-full blur-sm opacity-70" />
-              <div className="absolute -bottom-1 -left-1 w-4 h-4 bg-gradient-to-tr from-[#D1AB6D] to-[#E0CFB5] rounded-full blur-sm opacity-70" />
-              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-gradient-to-tl from-[#D1AB6D] to-[#E0CFB5] rounded-full blur-sm opacity-70" />
+              
               
               {/* Inner decorative border */}
-              <div className="absolute inset-2 border border-[#BB8A3D]/25 rounded-xl" />
+              <div className="absolute inset-2 border border-[#818D77]/40 rounded-xl" />
               
               {/* Content */}
               <div className="relative z-10">
                 <div className="flex items-center justify-center gap-1 md:gap-3 mb-2 md:mb-4">
-                  <div className="bg-gradient-to-r from-[#402921] to-[#583016] p-1 md:p-3 rounded-full shadow-lg">
-                    <Heart className="text-[#FFF6E7] h-3 w-3 md:h-6 md:w-6" />
+                  <div className="bg-gradient-to-r from-[#8096AE] to-[#818D77] p-1 md:p-3 rounded-full shadow-lg">
+                    <Heart className="text-white h-3 w-3 md:h-6 md:w-6" />
                   </div>
-                  <h3 className="text-sm sm:text-2xl md:text-3xl font-playfair font-bold text-[#402921]">
+                  <h3 className="text-sm sm:text-2xl md:text-3xl font-playfair font-bold text-white">
                     {totalGuests} {totalGuests === 1 ? "Guest" : "Guests"} Celebrating With Us
                   </h3>
                 </div>
-                <p className="text-xs sm:text-base md:text-lg text-[#402921]/70 font-lora leading-relaxed">
+                <p className="text-xs sm:text-base md:text-lg text-white/80 font-lora leading-relaxed">
                   Thank you for confirming your RSVP! Your presence means the world to us.
                 </p>
               </div>
@@ -181,15 +185,12 @@ export function BookOfGuests() {
 
         {/* Enhanced guest list container */}
         <div className="max-w-5xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-          <div className="relative bg-gradient-to-br from-[#FFF6E7] via-white to-[#FFF6E7] backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-2xl border-2 border-[#BB8A3D]/30">
+          <div className="relative bg-[#8096AE]/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-2xl border-2 border-[#818D77] ring-1 ring-[#8096AE]/40">
             {/* Decorative corner accents */}
-            <div className="absolute -top-1 -left-1 w-4 h-4 bg-gradient-to-br from-[#D1AB6D] to-[#E0CFB5] rounded-full blur-sm opacity-70" />
-            <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-bl from-[#D1AB6D] to-[#E0CFB5] rounded-full blur-sm opacity-70" />
-            <div className="absolute -bottom-1 -left-1 w-4 h-4 bg-gradient-to-tr from-[#D1AB6D] to-[#E0CFB5] rounded-full blur-sm opacity-70" />
-            <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-gradient-to-tl from-[#D1AB6D] to-[#E0CFB5] rounded-full blur-sm opacity-70" />
+            
             
             {/* Inner decorative border */}
-            <div className="absolute inset-2 border border-[#BB8A3D]/25 rounded-xl" />
+            <div className="absolute inset-2 border border-[#818D77]/40 rounded-xl" />
             {isLoading ? (
               <div className="flex items-center justify-center h-24 sm:h-48">
                 <div className="flex flex-col items-center gap-2 md:gap-4">
@@ -211,11 +212,11 @@ export function BookOfGuests() {
               </div>
             ) : guests.length === 0 ? (
               <div className="flex items-center justify-center py-10 sm:py-16">
-                <div className="relative text-center bg-gradient-to-br from-[#402921] to-[#583016] rounded-2xl px-6 sm:px-10 py-8 sm:py-12 shadow-2xl border border-white/20 max-w-xl w-full">
+                <div className="relative text-center bg-[#8096AE] rounded-2xl px-6 sm:px-10 py-8 sm:py-12 shadow-2xl border border-white/20 max-w-xl w-full">
                   {/* Decorative glow */}
                   <div className="absolute -inset-1 rounded-2xl bg-white/10 blur-xl opacity-30 pointer-events-none" />
                   <div className="relative">
-                    <div className="relative inline-flex items-center justify-center mb-4 sm:mb-6">
+                      <div className="relative inline-flex items-center justify-center mb-4 sm:mb-6">
                       <div className="absolute inset-0 rounded-full bg-white/20 blur-xl opacity-60" />
                       <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white/25 flex items-center justify-center shadow-lg">
                         <Heart className="h-7 w-7 sm:h-8 sm:w-8 text-[#FFF6E7]" />
@@ -228,7 +229,7 @@ export function BookOfGuests() {
                       Be the first to RSVP and kick off the celebration!
                     </p>
                     <div className="mt-4 sm:mt-6 flex justify-center">
-                      <div className="inline-flex items-center gap-2 bg-white text-[#402921] rounded-full px-3 sm:px-5 py-1.5 sm:py-2 shadow-md">
+                    <div className="inline-flex items-center gap-2 bg-white text-[#0f172a] rounded-full px-3 sm:px-5 py-1.5 sm:py-2 shadow-md">
                         <Sparkles className="h-4 w-4" />
                         <span className="text-xs sm:text-sm font-lora">Search your name to RSVP</span>
                       </div>
@@ -243,52 +244,61 @@ export function BookOfGuests() {
                     key={index}
                     className="relative"
                   >
-                    {/* Main card */}
-                    <div className={`group relative p-2 sm:p-6 rounded-md sm:rounded-xl border-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${
-                      index % 2 === 0 
-                        ? "bg-gradient-to-r from-[#BB8A3D]/10 to-white border-[#BB8A3D]/25 hover:border-[#BB8A3D]/40" 
-                        : "bg-gradient-to-r from-white to-[#CDAC77]/10 border-[#BB8A3D]/25 hover:border-[#BB8A3D]/40"
-                    }`}>
+                    {/* Main card - pure white, elegant border, subtle florals */}
+                    <div className={`group relative p-3 sm:p-6 rounded-xl border-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl bg-white border-[#D0D2D1] ring-1 ring-[#8096AE]/20 hover:ring-[#8096AE]/40`}>
+                      {/* Corner floral lines */}
+                      <svg className="pointer-events-none absolute -top-1 -left-1 w-24 sm:w-28 md:w-32 opacity-20" viewBox="0 0 200 200" fill="none" stroke="#8096AE" strokeWidth="1">
+                        <path d="M10 150 C 40 120, 60 80, 100 60 C 140 40, 160 30, 190 10"/>
+                      </svg>
+                      <svg className="pointer-events-none absolute -top-1 -right-1 w-24 sm:w-28 md:w-32 opacity-20 -scale-x-100" viewBox="0 0 200 200" fill="none" stroke="#8096AE" strokeWidth="1">
+                        <path d="M10 150 C 40 120, 60 80, 100 60 C 140 40, 160 30, 190 10"/>
+                      </svg>
+                      <svg className="pointer-events-none absolute -bottom-1 -left-1 w-24 sm:w-28 md:w-32 opacity-20 -scale-y-100" viewBox="0 0 200 200" fill="none" stroke="#818D77" strokeWidth="1">
+                        <path d="M10 150 C 40 120, 60 80, 100 60 C 140 40, 160 30, 190 10"/>
+                      </svg>
+                      <svg className="pointer-events-none absolute -bottom-1 -right-1 w-24 sm:w-28 md:w-32 opacity-20 rotate-180" viewBox="0 0 200 200" fill="none" stroke="#818D77" strokeWidth="1">
+                        <path d="M10 150 C 40 120, 60 80, 100 60 C 140 40, 160 30, 190 10"/>
+                      </svg>
                     
                     <div className="flex flex-col gap-2 sm:gap-4">
                       {/* Header section */}
                       <div className="flex items-start gap-2 sm:gap-3">
                         {/* Avatar */}
                         <div className="relative h-8 w-8 sm:h-12 sm:w-12 flex-shrink-0">
-                          <div className="h-full w-full rounded-full bg-gradient-to-br from-[#402921] to-[#583016] text-[#FFF6E7] flex items-center justify-center font-semibold shadow-lg ring-2 ring-white text-xs sm:text-base">
+                          <div className="h-full w-full rounded-full bg-gradient-to-br from-[#8096AE] to-[#818D77] text-white flex items-center justify-center font-semibold shadow-md ring-2 ring-[#818D77] text-xs sm:text-base">
                             {getInitials(guest.Name)}
                           </div>
                         </div>
                         
                         {/* Name and Email */}
-                        <div className="flex-1 min-w-0">
-                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
-                            <h4 className="font-lora text-[#402921] text-sm sm:text-xl font-semibold leading-tight transition-colors duration-300 group-hover:text-[#BB8A3D]">
+                          <div className="flex-1 min-w-0">
+                            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
+                              <h4 className="font-lora text-[#0f172a] text-sm sm:text-xl font-semibold leading-tight transition-colors duration-300 group-hover:text-[#8096AE]">
                               {guest.Name}
                             </h4>
                           </div>
-                          {guest.Email && guest.Email !== "Pending" && (
-                            <div className="flex items-center text-xs sm:text-sm text-[#402921]/70 mt-0.5 sm:mt-1">
-                              <Mail className="h-2 w-2 sm:h-4 sm:w-4 mr-1 sm:mr-2 text-[#BB8A3D] flex-shrink-0" />
-                              <span className="font-lora break-all truncate text-xs sm:text-sm">{guest.Email}</span>
-                            </div>
-                          )}
+                            {guest.Email && guest.Email !== "Pending" && (
+                              <div className="flex items-center text-xs sm:text-sm text-[#334155] mt-0.5 sm:mt-1">
+                                <Mail className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 text-[#8096AE] flex-shrink-0" />
+                                <span className="font-lora break-all truncate text-xs sm:text-sm">{guest.Email}</span>
+                              </div>
+                            )}
                         </div>
                       </div>
 
                       {/* Divider */}
-                      <div className="h-px bg-gradient-to-r from-transparent via-[#BB8A3D]/30 to-transparent" />
+                      <div className="h-px bg-[#D0D2D1]" />
 
                       {/* Premium message section */}
                       {guest.Message && (
                         <div className="relative">
-                          <div className="bg-gradient-to-r from-[#BB8A3D]/10 to-[#CDAC77]/10 rounded-md sm:rounded-xl p-2 sm:p-4 border-l-2 sm:border-l-4 border-[#BB8A3D]">
-                            <div className="flex items-start gap-1 sm:gap-3">
-                              <div className="bg-[#402921] p-0.5 sm:p-2 rounded-full flex-shrink-0">
-                                <MessageSquare className="h-2 w-2 sm:h-4 sm:w-4 text-[#FFF6E7]" />
+                          <div className="bg-[#818D77]/10 rounded-lg sm:rounded-xl p-2 sm:p-4 border-2 border-[#818D77]/30">
+                            <div className="flex items-start gap-2 sm:gap-3">
+                              <div className="bg-[#818D77] p-1 sm:p-2 rounded-full flex-shrink-0">
+                                <MessageSquare className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
                               </div>
                               <div className="flex-1">
-                                <p className="text-xs sm:text-base text-[#402921] font-lora leading-relaxed italic">
+                                <p className="text-xs sm:text-base text-[#0f172a] font-lora leading-relaxed italic">
                                   "{guest.Message}"
                                 </p>
                               </div>
@@ -298,10 +308,10 @@ export function BookOfGuests() {
                       )}
 
                       {/* Footer with guest number */}
-                      <div className="flex items-center justify-end pt-1 sm:pt-2 border-t border-[#CDAC77]/30">
-                        <div className="flex items-center gap-0.5 sm:gap-1">
-                          <User className="h-2 w-2 sm:h-3 sm:w-3 text-yellow-400 fill-current" />
-                          <span className="text-xs text-gray-500 font-lora">Guest #{index + 1}</span>
+                      <div className="flex items-center justify-end pt-1 sm:pt-2 border-t border-[#D0D2D1]">
+                        <div className="flex items-center gap-1">
+                          <User className="h-3 w-3 sm:h-3 sm:w-3 text-[#818D77]" />
+                          <span className="text-xs text-[#334155] font-lora">Guest #{index + 1}</span>
                         </div>
                       </div>
                     </div>

@@ -7,7 +7,12 @@
     "dev": "next dev",
     "lint": "eslint .",
     "start": "next start",
-    "images:webp": "tsx scripts/convert-to-webp.ts"
+    "images:webp": "tsx scripts/convert-to-webp.ts",
+    "audit:performance": "node scripts/audit-performance.js",
+    "audit:bundle": "node scripts/analyze-bundle.js",
+    "audit:deps": "node scripts/check-unused-deps.js",
+    "lighthouse": "lighthouse http://localhost:3000 --output=html,json --output-path=./performance-reports/lighthouse --view",
+    "lighthouse:ci": "lhci autorun"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",

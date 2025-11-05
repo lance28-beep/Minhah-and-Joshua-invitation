@@ -2,16 +2,17 @@
 
 import { Section } from "@/components/section"
 import { siteConfig } from "@/content/site"
-import { Clock, Utensils, Car, Shirt, Copy, Check, Navigation, Heart, Users, Camera, X, MapPin } from "lucide-react"
-import { useState, useEffect } from "react"
+import { Clock, Utensils, Shirt, Copy, Check, Navigation, Heart, Users, Camera, X, MapPin, Facebook } from "lucide-react"
+import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 
 export function Details() {
   const [copiedItems, setCopiedItems] = useState<Set<string>>(new Set())
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
   const [showImageModal, setShowImageModal] = useState<string | null>(null)
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null)
+  const previousFocusRef = useRef<Element | null>(null)
 
-  // Handle ESC key to close modal
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && showImageModal) {
@@ -20,13 +21,18 @@ export function Details() {
     }
     
     if (showImageModal) {
+      previousFocusRef.current = document.activeElement
       document.addEventListener('keydown', handleEscape)
       document.body.style.overflow = 'hidden'
+      setTimeout(() => closeButtonRef.current?.focus(), 0)
     }
 
     return () => {
       document.removeEventListener('keydown', handleEscape)
       document.body.style.overflow = 'unset'
+      if (previousFocusRef.current instanceof HTMLElement) {
+        previousFocusRef.current.focus()
+      }
     }
   }, [showImageModal])
 
@@ -46,545 +52,534 @@ export function Details() {
     }
   }
 
-  // Generate Google Maps links
   const ceremonyMapsLink = `https://maps.google.com/?q=${encodeURIComponent(siteConfig.ceremony.location)}`
-  const receptionMapsLink = `https://maps.google.com/?q=${encodeURIComponent(siteConfig.reception.location)}`
 
   const openInMaps = (link: string) => {
     window.open(link, '_blank', 'noopener,noreferrer')
   }
 
-
   return (
-    <Section id="details" className="relative bg-gradient-to-b from-[#402921] via-[#583016] to-[#402921] py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden">
-      {/* Decorative background elements */}
+    <Section id="details" className="relative bg-gradient-to-br from-[#8096AE] via-[#7e94ab] to-[#7a8ca0] py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden">
+      {/* Enhanced Background with Depth */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Floating geometric shapes with color palette */}
-        <div className="absolute top-10 left-10 w-20 h-20 bg-[#BB8A3D]/10 rounded-full blur-xl animate-pulse" />
-        <div className="absolute top-20 right-20 w-16 h-16 bg-[#CDAC77]/15 rounded-full blur-lg animate-pulse delay-1000" />
-        <div className="absolute bottom-20 left-20 w-24 h-24 bg-[#BB8A3D]/8 rounded-full blur-2xl animate-pulse delay-2000" />
-        <div className="absolute bottom-10 right-10 w-12 h-12 bg-[#CDAC77]/12 rounded-full blur-lg animate-pulse delay-500" />
-        {/* Decorative lines with gradient */}
-        <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#BB8A3D]/30 to-transparent" />
-        <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#CDAC77]/25 to-transparent" />
-        {/* Corner decorative elements with color palette */}
-        <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-br-3xl" />
-        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-bl-3xl" />
-        <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-tr-3xl" />
-        <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-tl-3xl" />
-        {/* Decorative corner images */}
+        {/* Layered gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#818D77]/3 to-[#818D77]/8" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#8096AE]/10 to-transparent" />
+        
+        {/* Animated floating orbs with staggered timing */}
+        <div className="absolute top-16 left-8 w-40 h-40 bg-[#818D77]/6 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '12s' }} />
+        <div className="absolute top-32 right-12 w-32 h-32 bg-[#B8B8B8]/8 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '1.5s' }} />
+        <div className="absolute bottom-24 left-1/4 w-36 h-36 bg-[#D0D2D1]/6 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '14s', animationDelay: '3s' }} />
+        <div className="absolute top-1/2 right-1/4 w-28 h-28 bg-[#8096AE]/8 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '11s', animationDelay: '2s' }} />
+        
+        {/* Subtle grid pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+          backgroundSize: '50px 50px'
+        }} />
+        
+        {/* Elegant divider lines */}
+        <div className="absolute top-1/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/15 via-white/25 to-transparent" />
+        <div className="absolute bottom-1/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/15 via-white/25 to-transparent" />
+
+        {/* Corner decorations */}
         <img
           src="/decoration/corner_right-top.png"
           alt=""
           aria-hidden="true"
-          className="absolute top-0 right-0 w-36 sm:w-44 md:w-56 lg:w-64 opacity-80 select-none"
+          className="absolute top-0 right-0 w-40 sm:w-52 md:w-64 lg:w-80 opacity-80 select-none pointer-events-none"
         />
         <img
           src="/decoration/corner_right-top.png"
           alt=""
           aria-hidden="true"
-          className="absolute bottom-0 left-0 w-28 sm:w-36 md:w-48 lg:w-56 opacity-70 rotate-180 select-none"
+          className="absolute top-0 left-0 w-36 sm:w-48 md:w-60 lg:w-72 opacity-70 -scale-x-100 select-none pointer-events-none"
+        />
+        <img
+          src="/decoration/corner_right-top.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute bottom-0 right-0 w-36 sm:w-48 md:w-60 lg:w-72 opacity-80 scale-y-[-1] select-none pointer-events-none"
+        />
+        <img
+          src="/decoration/corner_right-top.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute bottom-0 left-0 w-32 sm:w-44 md:w-56 lg:w-72 opacity-80 scale-x-[-1] scale-y-[-1] select-none pointer-events-none"
         />
       </div>
 
-      <div className="relative z-10 text-center mb-12 sm:mb-16 lg:mb-20">
-        {/* Decorative ornaments */}
-        <div className="flex items-center justify-center gap-6 mb-6">
-          <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#BB8A3D]/60 to-[#CDAC77]/30" />
+      {/* Section Header - Premium Typography */}
+      <div className="relative z-10 text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24 px-4 sm:px-6">
+        <div className="flex items-center justify-center gap-3 sm:gap-4 mb-5 sm:mb-6">
+          <div className="h-px w-16 sm:w-20 md:w-24 bg-gradient-to-r from-transparent via-white/50 to-white/50" />
           <div className="flex gap-2">
-            <div className="w-2 h-2 bg-[#BB8A3D] rounded-full" />
-            <div className="w-1 h-1 bg-[#FFF6E7] rounded-full self-center" />
-            <div className="w-2 h-2 bg-[#BB8A3D] rounded-full" />
+            <div className="w-2 h-2 bg-white/90 rounded-full shadow-lg" />
+            <div className="w-1.5 h-1.5 bg-white/70 rounded-full self-center" />
+            <div className="w-2 h-2 bg-white/90 rounded-full shadow-lg" />
           </div>
-          <div className="w-16 h-px bg-gradient-to-l from-transparent via-[#BB8A3D]/60 to-[#CDAC77]/30" />
+          <div className="h-px w-16 sm:w-20 md:w-24 bg-gradient-to-l from-transparent via-white/50 to-white/50" />
         </div>
-        <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-[#FFF6E7] mb-6 text-balance drop-shadow-lg relative">
-          <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-br from-[#BB8A3D] via-[#CDAC77] to-[#FFF6E7]">Event Details</span>
-          {/* Text glow effect */}
-          <span className="absolute inset-0 text-[#BB8A3D]/20 blur-2xl -z-10">Event Details</span>
+        
+        <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold text-white mb-5 sm:mb-6 tracking-tight leading-tight">
+          <span className="block bg-gradient-to-r from-white via-white to-white/95 bg-clip-text text-transparent">
+            Event Details
+          </span>
         </h2>
-        <p className="text-lg md:text-xl text-[#FFF6E7] font-sans font-light max-w-2xl mx-auto px-4 leading-relaxed mb-8">
+        
+        <p className="text-[15px] sm:text-lg md:text-xl lg:text-2xl text-white/85 font-sans font-light max-w-3xl mx-auto leading-relaxed px-4">
           Everything you need to know about our special day
         </p>
-        {/* Bottom decorative ornaments */}
-        <div className="flex items-center justify-center gap-6 mt-8">
-          <div className="w-12 h-px bg-gradient-to-r from-transparent via-[#CDAC77]/40 to-[#FFF6E7]/20" />
-          <div className="w-1 h-1 bg-[#CDAC77] rounded-full" />
-          <div className="w-12 h-px bg-gradient-to-l from-transparent via-[#CDAC77]/40 to-[#FFF6E7]/20" />
-        </div>
       </div>
 
-      {/* Ceremony and Reception */}
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 lg:mb-16">
-        {/* Ceremony */}
-        <div 
-          className="bg-gradient-to-br from-[#FFF6E7] via-[#CDAC77]/25 to-[#FFF6E7] backdrop-blur-md rounded-3xl p-5 sm:p-6 md:p-8 shadow-[0_8px_32px_rgba(64,41,33,0.25)] border-2 border-[#BB8A3D]/60 hover:border-[#BB8A3D] hover:shadow-[0_12px_48px_rgba(64,41,33,0.35)] transition-all duration-700 hover:scale-[1.02] group relative overflow-hidden"
-          onMouseEnter={() => setHoveredCard('ceremony')}
-          onMouseLeave={() => setHoveredCard(null)}
-        >
-          {/* Enhanced Decorative Background Elements */}
-          <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-[#BB8A3D]/20 via-[#CDAC77]/15 to-[#BB8A3D]/20 rounded-full blur-2xl opacity-40 animate-pulse" />
-          <div className="absolute top-4 right-4 w-20 h-20 bg-[#CDAC77]/10 rounded-full opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-700" />
-          
-          {/* Inner decorative border with gradient */}
-          <div className="absolute inset-2 border border-[#BB8A3D]/40 rounded-2xl" />
-          
-          {/* Shimmer effect layer */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shimmer rounded-3xl" />
-          
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-5 sm:mb-6 gap-3 sm:gap-4 relative z-10">
-            <div className="flex items-center gap-3 sm:gap-4">
-              <div className={`bg-gradient-to-br from-[#BB8A3D]/30 via-[#CDAC77]/20 to-[#BB8A3D]/30 p-2.5 sm:p-3 md:p-4 rounded-2xl transition-all duration-300 shadow-md group-hover:shadow-lg ${hoveredCard === 'ceremony' ? 'scale-110 rotate-[3deg]' : ''}`}>
-                <Heart className="text-[#402921] w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
-              </div>
-              <h3 className="text-2xl sm:text-2xl md:text-3xl font-bold tracking-tight text-[#402921]">Ceremony</h3>
-            </div>
-            <div className="flex items-center gap-1.5 sm:gap-2 self-end sm:self-auto">
-              <button
-                onClick={() => openInMaps(ceremonyMapsLink)}
-                className="p-2 sm:p-2.5 text-[#402921]/70 hover:text-[#402921] hover:bg-gradient-to-br hover:from-[#402921]/10 hover:to-[#402921]/5 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-md active:scale-95"
-                title="Open in Google Maps"
-              >
-                <Navigation className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" />
-              </button>
-              <button
-                onClick={() => copyToClipboard(siteConfig.ceremony.location, 'ceremony')}
-                className="p-2 sm:p-2.5 text-[#402921]/70 hover:text-[#402921] hover:bg-gradient-to-br hover:from-[#402921]/10 hover:to-[#402921]/5 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-md active:scale-95"
-                title="Copy ceremony details"
-              >
-                {copiedItems.has('ceremony') ? <Check className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" /> : <Copy className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" />}
-              </button>
-            </div>
-          </div>
-
-          <div className="space-y-2 sm:space-y-3 mb-3 sm:mb-4 md:mb-6 relative z-10">
-            <p className="text-sm sm:text-base md:text-lg font-semibold text-[#402921]">{siteConfig.ceremony.venue}</p>
-            <p className="text-xs sm:text-sm text-[#402921] opacity-70">Buyagan, La Trinidad, Benguet</p>
-            <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base text-[#402921]">
-              <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-[#BB8A3D] flex-shrink-0" />
-              <span>
-                {siteConfig.ceremony.date} at {siteConfig.ceremony.time}
-              </span>
-              </div>
-            </div>
+      {/* Main Content - Enhanced Layout System */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12 md:space-y-16 lg:space-y-20">
+        
+        {/* Venue Card - Premium Design */}
+        <article className="relative">
+          <div 
+            className="bg-white/12 backdrop-blur-2xl rounded-3xl sm:rounded-[2rem] overflow-hidden border border-white/25 shadow-[0_20px_60px_rgba(0,0,0,0.3)] hover:shadow-[0_25px_80px_rgba(0,0,0,0.4)] transition-all duration-700 hover:border-white/35 hover:-translate-y-1 group"
+            onMouseEnter={() => setHoveredCard('venue')}
+            onMouseLeave={() => setHoveredCard(null)}
+          >
+            {/* Subtle inner glow effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             
-          {/* Ceremony Image */}
-          <div className="mb-4 sm:mb-5 md:mb-6">
-            <div 
-              className="relative w-full h-36 sm:h-44 md:h-52 rounded-2xl overflow-hidden shadow-lg cursor-pointer group/image transition-all duration-300 hover:shadow-2xl hover:scale-[1.01] sm:hover:scale-[1.02] active:scale-[0.98] border-2 border-[#402921]/10 group-hover:border-[#402921]/20"
-              onClick={() => setShowImageModal('ceremony')}
-            >
-              <Image
-                src="/Details/church.png"
-                alt={siteConfig.ceremony.location}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500 flex items-center justify-center">
-                <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-xl">
-                    <Camera className="text-[#402921] w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
-              </div>
+            {/* Card Header with Enhanced Styling */}
+            <header className="relative px-6 sm:px-8 md:px-10 lg:px-12 pt-8 sm:pt-10 md:pt-12 pb-6 sm:pb-8 border-b border-white/15">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 sm:gap-6">
+              <div className="flex items-center gap-3 sm:gap-5">
+                  <div className={`relative bg-gradient-to-br from-white/25 to-white/15 p-4 sm:p-5 rounded-2xl sm:rounded-3xl shadow-lg transition-all duration-500 ${hoveredCard === 'venue' ? 'scale-110 rotate-3 shadow-xl' : ''}`}>
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl sm:rounded-3xl" />
+                    <Heart className="relative text-white w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9" fill="currentColor" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 leading-tight">
+                      Ceremony & Reception
+                    </h3>
+                    <p className="text-sm sm:text-base md:text-lg text-white/75 font-medium">
+                      {siteConfig.ceremony.venue}
+                    </p>
+                  </div>
+                </div>
+                
+                {/* Quick Action Buttons - Refined */}
+                <div className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
+                  <a
+                    href="https://www.facebook.com/MaiPavilionEventsPlace/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 sm:p-3.5 text-white/85 hover:text-white hover:bg-white/15 rounded-xl transition-all duration-300 hover:scale-110 active:scale-95 shadow-md hover:shadow-lg"
+                    title="Visit Facebook Page"
+                    aria-label="Visit Mai Pavillion Facebook Page"
+                  >
+                    <Facebook className="w-5 h-5 sm:w-6 sm:h-6" />
+                  </a>
+                  <button
+                    onClick={() => openInMaps(ceremonyMapsLink)}
+                    className="p-3 sm:p-3.5 text-white/85 hover:text-white hover:bg-white/15 rounded-xl transition-all duration-300 hover:scale-110 active:scale-95 shadow-md hover:shadow-lg"
+                    title="Open in Maps"
+                    aria-label="Open venue in Google Maps"
+                  >
+                    <Navigation className="w-5 h-5 sm:w-6 sm:h-6" />
+                  </button>
+                  <button
+                    onClick={() => copyToClipboard(siteConfig.ceremony.location, 'venue')}
+                    className="p-3 sm:p-3.5 text-white/85 hover:text-white hover:bg-white/15 rounded-xl transition-all duration-300 hover:scale-110 active:scale-95 shadow-md hover:shadow-lg"
+                    title="Copy Address"
+                    aria-label="Copy venue address"
+                  >
+                    {copiedItems.has('venue') ? (
+                      <Check className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-300" />
+                    ) : (
+                      <Copy className="w-5 h-5 sm:w-6 sm:h-6" />
+                    )}
+                  </button>
                 </div>
               </div>
-            </div>
-          </div>
+            </header>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center relative z-10">
-            <button
-              onClick={() => setShowImageModal('ceremony')}
-              className="flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-[#402921] to-[#583016] hover:from-[#583016] hover:to-[#402921] text-white rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95 shadow-lg"
-            >
-              <Camera className="w-4 h-4" />
-              <span>View Venue</span>
-            </button>
-            <button
-              onClick={() => openInMaps(ceremonyMapsLink)}
-              className="flex items-center justify-center gap-2 px-5 py-3 bg-white border-2 border-[#BB8A3D] text-[#402921] rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 shadow-md hover:bg-[#CDAC77]/15"
-            >
-              <Navigation className="w-4 h-4" />
-              <span>Get Directions</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Reception */}
-        <div 
-          className="bg-gradient-to-br from-[#FFF6E7] via-[#CDAC77]/25 to-[#FFF6E7] backdrop-blur-md rounded-3xl p-5 sm:p-6 md:p-8 shadow-[0_8px_32px_rgba(64,41,33,0.25)] border-2 border-[#BB8A3D]/60 hover:border-[#BB8A3D] hover:shadow-[0_12px_48px_rgba(64,41,33,0.35)] transition-all duration-700 hover:scale-[1.02] group relative overflow-hidden"
-          onMouseEnter={() => setHoveredCard('reception')}
-          onMouseLeave={() => setHoveredCard(null)}
-        >
-          {/* Enhanced Decorative Background Elements */}
-          <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-[#BB8A3D]/20 via-[#CDAC77]/15 to-[#BB8A3D]/20 rounded-full blur-2xl opacity-40 animate-pulse" />
-          <div className="absolute top-4 right-4 w-20 h-20 bg-[#CDAC77]/10 rounded-full opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-700" />
-          
-          {/* Inner decorative border with gradient */}
-          <div className="absolute inset-2 border border-[#BB8A3D]/40 rounded-2xl" />
-          
-          {/* Shimmer effect layer */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shimmer rounded-3xl" />
-          
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-5 sm:mb-6 gap-3 sm:gap-4 relative z-10">
-            <div className="flex items-center gap-3 sm:gap-4">
-              <div className={`bg-gradient-to-br from-[#BB8A3D]/30 via-[#CDAC77]/20 to-[#BB8A3D]/30 p-2.5 sm:p-3 md:p-4 rounded-2xl transition-all duration-300 shadow-md group-hover:shadow-lg ${hoveredCard === 'reception' ? 'scale-110 rotate-[3deg]' : ''}`}>
-                <Utensils className="text-[#402921] w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
-              </div>
-              <h3 className="text-2xl sm:text-2xl md:text-3xl font-bold tracking-tight text-[#402921]">Reception</h3>
-            </div>
-            <div className="flex items-center gap-1.5 sm:gap-2 self-end sm:self-auto">
-              <button
-                onClick={() => openInMaps(receptionMapsLink)}
-                className="p-2 sm:p-2.5 text-[#402921]/70 hover:text-[#402921] hover:bg-gradient-to-br hover:from-[#402921]/10 hover:to-[#402921]/5 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-md active:scale-95"
-                title="Open in Google Maps"
-              >
-                <Navigation className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" />
-              </button>
-              <button
-                onClick={() => copyToClipboard(siteConfig.reception.location, 'reception')}
-                className="p-2 sm:p-2.5 text-[#402921]/70 hover:text-[#402921] hover:bg-gradient-to-br hover:from-[#402921]/10 hover:to-[#402921]/5 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-md active:scale-95"
-                title="Copy reception details"
-              >
-                {copiedItems.has('reception') ? <Check className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" /> : <Copy className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" />}
-              </button>
-                </div>
-              </div>
-
-          <div className="space-y-2 sm:space-y-3 mb-3 sm:mb-4 md:mb-6 relative z-10">
-            <p className="text-sm sm:text-base md:text-lg font-semibold text-[#402921]">{siteConfig.reception.venue}</p>
-            <p className="text-xs sm:text-sm text-[#402921] opacity-70"> Buyagan, La Trinidad, Benguet</p>
-            <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base text-[#402921]">
-              <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-[#BB8A3D] flex-shrink-0" />
-              <span>
-                {siteConfig.reception.date} - {siteConfig.reception.time}
-              </span>
-            </div>
-          </div>
-
-          {/* Reception Image */}
-          <div className="mb-4 sm:mb-5 md:mb-6">
-            <div 
-              className="relative w-full h-36 sm:h-44 md:h-52 rounded-2xl overflow-hidden shadow-lg cursor-pointer group/image transition-all duration-300 hover:shadow-2xl hover:scale-[1.01] sm:hover:scale-[1.02] active:scale-[0.98] border-2 border-[#402921]/10 group-hover:border-[#402921]/20"
-              onClick={() => setShowImageModal('reception')}
-            >
-              <Image
-                src="/Details/D-L-Garden.png"
-                alt={siteConfig.reception.location}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500 flex items-center justify-center">
-                <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-xl">
-                    <Camera className="text-[#402921] w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
+            {/* Card Content - Enhanced Spacing */}
+            <div className="px-6 sm:px-8 md:px-10 lg:px-12 py-8 sm:py-10">
+              
+              {/* Location Section */}
+              <div className="mb-8 sm:mb-10">
+                <div className="flex items-start gap-4 mb-5">
+                  <div className="bg-gradient-to-br from-[#818D77]/40 to-[#818D77]/20 p-3 rounded-xl shadow-lg flex-shrink-0">
+                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs sm:text-sm font-bold text-white/50 uppercase tracking-wider mb-2">Location</p>
+                    <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed font-medium break-words text-pretty">
+                      {siteConfig.ceremony.location}
+                    </p>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center relative z-10">
-            <button
-              onClick={() => setShowImageModal('reception')}
-              className="flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-[#402921] to-[#583016] hover:from-[#583016] hover:to-[#402921] text-white rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95 shadow-lg"
-            >
-              <Camera className="w-4 h-4" />
-              <span>View Venue</span>
-            </button>
-            <button
-              onClick={() => openInMaps(receptionMapsLink)}
-              className="flex items-center justify-center gap-2 px-5 py-3 bg-white border-2 border-[#BB8A3D] text-[#402921] rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 shadow-md hover:bg-[#CDAC77]/15"
-            >
-              <Navigation className="w-4 h-4" />
-              <span>Get Directions</span>
-            </button>
-          </div>
+              {/* Date & Time Grid - Enhanced Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-10">
+                <div className="group/time relative bg-gradient-to-br from-white/8 to-white/4 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-white/15 shadow-lg hover:shadow-xl hover:border-white/25 transition-all duration-500 hover:-translate-y-1">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#818D77]/10 to-transparent rounded-2xl sm:rounded-3xl opacity-0 group-hover/time:opacity-100 transition-opacity duration-500" />
+                  <div className="relative flex items-center gap-3 sm:gap-4 mb-4">
+                    <div className="bg-gradient-to-br from-[#818D77]/40 to-[#818D77]/20 p-3 rounded-xl shadow-md">
+                      <Heart className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" />
+                    </div>
+                    <p className="text-xs sm:text-sm font-bold text-white/60 uppercase tracking-wider">Ceremony</p>
+                  </div>
+                  <p className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">
+                    {siteConfig.ceremony.date}
+                  </p>
+                  <div className="flex items-center gap-2.5 text-sm sm:text-base md:text-lg text-white/85">
+                    <Clock className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                    <span className="font-medium">{siteConfig.ceremony.time}</span>
+                  </div>
+                </div>
+                
+                <div className="group/time relative bg-gradient-to-br from-white/8 to-white/4 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-white/15 shadow-lg hover:shadow-xl hover:border-white/25 transition-all duration-500 hover:-translate-y-1">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#818D77]/10 to-transparent rounded-2xl sm:rounded-3xl opacity-0 group-hover/time:opacity-100 transition-opacity duration-500" />
+                  <div className="relative flex items-center gap-3 sm:gap-4 mb-4">
+                    <div className="bg-gradient-to-br from-[#818D77]/40 to-[#818D77]/20 p-3 rounded-xl shadow-md">
+                      <Utensils className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                    </div>
+                    <p className="text-xs sm:text-sm font-bold text-white/60 uppercase tracking-wider">Reception</p>
+                  </div>
+                  <p className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">
+                    {siteConfig.reception.date}
+                  </p>
+                  <div className="flex items-center gap-2.5 text-sm sm:text-base md:text-lg text-white/85">
+                    <Clock className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                    <span className="font-medium">{siteConfig.reception.time}</span>
+                  </div>
                 </div>
               </div>
 
-      {/* Additional Information */}
-      <div className="relative z-10 mb-8 sm:mb-12 lg:mb-16">
-        <div className="text-center mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-3 mb-4">
-            <div className="hidden sm:block h-px w-8 bg-gradient-to-r from-transparent to-[#BB8A3D]/50" />
-            <div className="bg-[#CDAC77]/25 p-3 rounded-full shadow-lg">
-              <Users className="text-[#402921] w-6 h-6 sm:w-8 sm:h-8" />
-            </div>
-            <div className="hidden sm:block h-px w-8 bg-gradient-to-l from-transparent to-[#BB8A3D]/50" />
-          </div>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 text-[#FFF6E7]">Important Information</h3>
-          <p className="text-sm sm:text-base text-[#FFF6E7]/80">Everything you need to know</p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-          {/* Dress Code */}
-          <div className="bg-gradient-to-br from-[#FFF6E7] via-[#CDAC77]/20 to-[#FFF6E7] backdrop-blur-md rounded-2xl p-5 sm:p-6 md:p-7 border-2 border-[#BB8A3D]/60 hover:border-[#BB8A3D] hover:shadow-xl transition-all duration-500 hover:scale-[1.01] hover:-translate-y-1 active:scale-[0.99] group relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[#CDAC77]/15 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            <div className="flex items-center gap-1.5 sm:gap-2 mb-4">
-              <div className="bg-[#CDAC77]/30 p-2 rounded-full shadow-md">
-                <Shirt className="text-[#402921] w-4 h-4 sm:w-5 sm:h-5" />
+              {/* Venue Image - Enhanced */}
+              <div className="mb-8 sm:mb-10">
+                <button
+                  onClick={() => setShowImageModal('ceremony')}
+                  className="relative w-full h-52 sm:h-64 md:h-72 lg:h-80 rounded-2xl sm:rounded-3xl overflow-hidden group/image border-2 border-white/25 hover:border-white/40 transition-all duration-500 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/30 focus:ring-offset-2 focus:ring-offset-[#8096AE]"
+                  aria-label="View venue image"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent z-10" />
+                  <Image
+                    src="/Details/church.png"
+                    alt={siteConfig.ceremony.location}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover/image:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity duration-500 z-20" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/image:opacity-100 transition-opacity duration-500 z-30">
+                    <div className="bg-white/95 backdrop-blur-md rounded-full p-5 sm:p-6 shadow-2xl transform group-hover/image:scale-110 transition-transform duration-500 border-2 border-white/50">
+                      <Camera className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-[#8096AE]" />
+                    </div>
+                  </div>
+                </button>
               </div>
-              <h4 className="font-bold text-base sm:text-lg text-[#402921]">Dress Code</h4>
-            </div>
-            
-            {/* Theme Badge */}
-            <div className="mb-4">
-              <span className="text-xs sm:text-sm font-semibold text-[#402921] bg-[#CDAC77]/30 px-3 py-1.5 rounded-full">{typeof siteConfig.dressCode === 'object' ? siteConfig.dressCode.theme : siteConfig.dressCode}</span>
-            </div>
 
-            {/* Color Palette */}
-            {typeof siteConfig.dressCode === 'object' && siteConfig.dressCode.colors && (
-              <div className="mb-4">
-                <p className="text-xs font-semibold text-[#525E2C] mb-2">Color Palette</p>
-                <div className="flex gap-2 flex-wrap">
-                  {siteConfig.dressCode.colors.map((color, index) => (
-                    <div
-                      key={index}
-                      className="w-8 h-8 sm:w-10 sm:h-10 rounded-full shadow-md border-2 border-white ring-2 ring-[#BB8A3D]/25"
-                      style={{ backgroundColor: color }}
-                      title={color}
-                    />
+              {/* Action Buttons - Enhanced Hierarchy */}
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4">
+                <a
+                  href="https://www.facebook.com/MaiPavilionEventsPlace/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="min-w-0 w-full sm:w-auto flex-1 sm:flex-none flex items-center justify-center gap-3 px-6 sm:px-7 py-3.5 bg-gradient-to-r from-[#1877F2] to-[#166FE5] hover:from-[#166FE5] hover:to-[#1458c4] text-white rounded-xl sm:rounded-2xl font-semibold text-sm sm:text-base transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] shadow-lg hover:shadow-xl border border-white/20"
+                >
+                  <Facebook className="w-5 h-5" />
+                  <span>Facebook Page</span>
+                </a>
+                <button
+                  onClick={() => setShowImageModal('ceremony')}
+                  className="min-w-0 w-full sm:w-auto flex-1 sm:flex-none flex items-center justify-center gap-3 px-6 sm:px-7 py-3.5 bg-white/12 hover:bg-white/18 backdrop-blur-sm text-white rounded-xl sm:rounded-2xl font-semibold text-sm sm:text-base border border-white/25 hover:border-white/35 transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] shadow-lg hover:shadow-xl"
+                >
+                  <Camera className="w-5 h-5" />
+                  <span>View Venue</span>
+                </button>
+                <button
+                  onClick={() => openInMaps(ceremonyMapsLink)}
+                  className="min-w-0 w-full sm:w-auto flex-1 sm:flex-none flex items-center justify-center gap-3 px-6 sm:px-7 py-3.5 bg-gradient-to-r from-[#818D77] to-[#7a826f] hover:from-[#7a826f] hover:to-[#6f7668] text-white rounded-xl sm:rounded-2xl font-semibold text-sm sm:text-base transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] shadow-lg hover:shadow-xl border border-white/20"
+                >
+                  <Navigation className="w-5 h-5" />
+                  <span>Get Directions</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        {/* Wedding Theme Section - Compact Design */}
+        <section className="relative">
+          <div className="bg-white/12 backdrop-blur-2xl rounded-2xl sm:rounded-3xl overflow-hidden border border-white/25 shadow-xl hover:shadow-2xl hover:border-white/35 transition-all duration-500">
+            <div className="px-6 sm:px-8 py-6 sm:py-8 text-center">
+              <div className="flex items-center justify-center gap-2.5 sm:gap-4 mb-3 sm:mb-5">
+                <div className="bg-gradient-to-br from-white/25 to-white/15 p-2.5 sm:p-3 rounded-xl shadow-md">
+                  <Heart className="text-white w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" />
+                </div>
+                <h3 className="text-lg sm:text-2xl md:text-3xl font-bold text-white">
+                  Wedding Theme
+                </h3>
+              </div>  
+              {/* Color Palette - Circular Design */}
+              <div className="flex items-center justify-center gap-3.5 sm:gap-5 md:gap-6 flex-wrap">
+                {[
+                  { color: '#8096AE' },
+                  { color: '#818D77' },
+                  { color: '#B8B8B8' },
+                  { color: '#D0D2D1' }
+                ].map((item, index) => (
+                  <div key={index} className="flex flex-col items-center gap-2 group/color">
+                    <div 
+                      className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full border-[3px] border-white/60 shadow-lg hover:shadow-xl hover:scale-110 hover:border-white/80 transition-all duration-500 cursor-pointer overflow-hidden"
+                      style={{ backgroundColor: item.color }}
+                      title={item.color}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover/color:opacity-100 transition-opacity duration-500" />
+                    </div>
+                    <p className="text-[11px] sm:text-xs text-white/70 font-mono tracking-wide">{item.color}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Important Information - Enhanced Grid */}
+        <section className="relative">
+          <header className="text-center mb-10 sm:mb-12 md:mb-14">
+            <div className="flex items-center justify-center gap-4 sm:gap-5 mb-5 sm:mb-6">
+              <div className="h-px w-16 sm:w-20 bg-gradient-to-r from-transparent via-white/50 to-white/50" />
+              <div className="bg-gradient-to-br from-white/25 to-white/15 p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-lg">
+                <Users className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
+              </div>
+              <div className="h-px w-16 sm:w-20 bg-gradient-to-l from-transparent via-white/50 to-white/50" />
+            </div>
+            <h3 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 sm:mb-4">
+              Important Information
+            </h3>
+            <p className="text-[13px] sm:text-base md:text-lg text-white/75">
+              Everything you need to know
+            </p>
+          </header>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 md:gap-8">
+            {/* Attire Cards - Enhanced */}
+            <article className="bg-white/12 backdrop-blur-2xl rounded-2xl sm:rounded-3xl overflow-hidden border border-white/25 shadow-xl hover:shadow-2xl hover:border-white/35 hover:-translate-y-1 transition-all duration-500 group">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative px-6 sm:px-8 py-7 sm:py-8 md:py-10">
+                <div className="flex items-center gap-4 sm:gap-5 mb-6 sm:mb-8">
+                  <div className="bg-gradient-to-br from-[#818D77]/40 to-[#818D77]/20 p-3 sm:p-4 rounded-xl shadow-lg">
+                    <Users className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
+                  </div>
+                  <h4 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">
+                    Entourage Attire
+                  </h4>
+                </div>
+                <div className="space-y-4 sm:space-y-5 md:space-y-6">
+                  <div className="bg-gradient-to-br from-white/8 to-white/4 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-white/15 shadow-md">
+                    <p className="text-xs sm:text-sm font-bold text-white/60 uppercase tracking-wider mb-2.5">
+                      Ladies
+                    </p>
+                    <p className="text-sm sm:text-base md:text-lg text-white font-medium">
+                      Filipiniana
+                    </p>
+                  </div>
+                  <div className="bg-gradient-to-br from-white/8 to-white/4 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-white/15 shadow-md">
+                    <p className="text-xs sm:text-sm font-bold text-white/60 uppercase tracking-wider mb-2.5">
+                      Gentlemen
+                    </p>
+                    <p className="text-sm sm:text-base md:text-lg text-white font-medium">
+                      Barong & Black Slacks
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article className="bg-white/12 backdrop-blur-2xl rounded-2xl sm:rounded-3xl overflow-hidden border border-white/25 shadow-xl hover:shadow-2xl hover:border-white/35 hover:-translate-y-1 transition-all duration-500 group">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative px-6 sm:px-8 py-7 sm:py-8 md:py-10">
+                <div className="flex items-center gap-4 sm:gap-5 mb-6 sm:mb-8">
+                  <div className="bg-gradient-to-br from-[#818D77]/40 to-[#818D77]/20 p-3 sm:p-4 rounded-xl shadow-lg">
+                    <Shirt className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
+                  </div>
+                  <h4 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">
+                    Guests Attire
+                  </h4>
+                </div>
+                <div className="space-y-4 sm:space-y-5 md:space-y-6">
+                  <div className="bg-gradient-to-br from-white/8 to-white/4 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-white/15 shadow-md">
+                    <p className="text-xs sm:text-sm font-bold text-white/60 uppercase tracking-wider mb-2.5">
+                      For Ladies
+                    </p>
+                    <p className="text-sm sm:text-base md:text-lg text-white font-medium">
+                      Filipiniana or Long Dress
+                    </p>
+                  </div>
+                  <div className="bg-gradient-to-br from-white/8 to-white/4 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-white/15 shadow-md">
+                    <p className="text-xs sm:text-sm font-bold text-white/60 uppercase tracking-wider mb-2.5">
+                      For Gentlemen
+                    </p>
+                    <p className="text-sm sm:text-base md:text-lg text-white font-medium">
+                      Barong or Polo
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            {/* Additional Info Card - Full Width */}
+            <article className="sm:col-span-2 bg-white/12 backdrop-blur-2xl rounded-2xl sm:rounded-3xl overflow-hidden border border-white/25 shadow-xl hover:shadow-2xl hover:border-white/35 hover:-translate-y-1 transition-all duration-500 group">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative px-6 sm:px-8 md:px-10 py-7 sm:py-8 md:py-10">
+                <div className="flex items-center gap-4 sm:gap-5 mb-6 sm:mb-8">
+                  <div className="bg-gradient-to-br from-[#818D77]/40 to-[#818D77]/20 p-3 sm:p-4 rounded-xl shadow-lg">
+                    <Navigation className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
+                  </div>
+                  <h4 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">
+                    Additional Information
+                  </h4>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
+                  {[
+                    { label: 'Parking', value: 'Available at venue' },
+                    { label: 'Arrival Time', value: '15-20 minutes before ceremony' },
+                    { label: 'Contact', value: '-' }
+                  ].map((item, index) => (
+                    <div key={index} className="bg-gradient-to-br from-white/8 to-white/4 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 border border-white/15 shadow-md hover:shadow-lg transition-shadow duration-300">
+                      <p className="text-xs sm:text-sm font-bold text-white/60 uppercase tracking-wider mb-2.5">
+                        {item.label}
+                      </p>
+                      <p className="text-sm sm:text-base md:text-lg text-white font-medium leading-relaxed">
+                        {item.value}
+                      </p>
+                    </div>
                   ))}
                 </div>
               </div>
-            )}
-
-            {/* Principal Sponsors */}
-            {typeof siteConfig.dressCode === 'object' && siteConfig.dressCode.sponsors && (
-              <div className="mb-4 bg-white/60 rounded-lg p-3 border border-[#BB8A3D]/25">
-                <p className="text-xs font-semibold text-[#402921] mb-2">Principal Sponsors</p>
-                <p className="text-xs text-[#402921] opacity-80 mb-1">Dress Code: Any shade of Gold</p>
-
-              </div>
-            )}
-
-            {/* Guests */}
-            {typeof siteConfig.dressCode === 'object' && siteConfig.dressCode.guests && (
-              <div className="mb-4 bg-white/60 rounded-lg p-3 border border-[#BB8A3D]/25">
-                <p className="text-xs font-semibold text-[#402921] mb-2">Guests</p>
-                <p className="text-xs text-[#402921] opacity-80 mb-1">Dress Code: Semi-formal (avoid casual attire)</p>
-                <p className="text-xs font-medium text-[#402921] opacity-90 bg-[#CDAC77]/25 px-2 py-1 rounded">⚠️ {siteConfig.dressCode.note}</p>
-              </div>
-            )}
+            </article>
           </div>
+        </section>
+      </div>
 
-          {/* Travel & Comfort - Combined */}
-          <div className="bg-gradient-to-br from-[#FFF6E7] via-[#CDAC77]/20 to-[#FFF6E7] backdrop-blur-md rounded-2xl p-5 sm:p-6 md:p-7 border-2 border-[#BB8A3D]/60 hover:border-[#BB8A3D] hover:shadow-xl transition-all duration-500 hover:scale-[1.01] hover:-translate-y-1 active:scale-[0.99] group relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[#D1AB6D]/10 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            <div className="flex items-center gap-1.5 sm:gap-2 mb-4 relative z-10">
-              <div className="bg-[#CDAC77]/30 p-2 rounded-full shadow-md">
-                <Car className="text-[#402921] w-4 h-4 sm:w-5 sm:h-5" />
-              </div>
-              <h4 className="font-bold text-base sm:text-lg text-[#402921]">Parking & Travel</h4>
-            </div>
-            
-            <div className="space-y-3">
-              {/* Parking Information */}
-              <div className="bg-gradient-to-br from-white to-[#CDAC77]/20 rounded-xl p-3 sm:p-4 border-2 border-[#BB8A3D]/30 shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="flex items-start gap-2 mb-2">
-                  <div className="bg-[#CDAC77]/25 p-1.5 rounded-full mt-0.5">
-                    <Car className="w-3 h-3 text-[#402921]" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-xs font-semibold text-[#402921] mb-1">Parking Available</p>
-                    <p className="text-xs text-[#402921] opacity-70 leading-relaxed">
-                      Ample parking is available at both venues. We recommend arriving 15-20 minutes early.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Transportation */}
-              <div className="bg-gradient-to-br from-white to-[#CDAC77]/20 rounded-xl p-3 sm:p-4 border-2 border-[#BB8A3D]/30 shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="flex items-start gap-2 mb-2">
-                  <div className="bg-[#CDAC77]/25 p-1.5 rounded-full mt-0.5">
-                    <Navigation className="w-3 h-3 text-[#402921]" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-xs font-semibold text-[#402921] mb-1">Transportation</p>
-                    <p className="text-xs text-[#402921] opacity-70 leading-relaxed mb-2">
-                      💡 Book transportation in advance for a stress-free day
-                    </p>
-                    <p className="text-xs text-[#402921] opacity-70 leading-relaxed">
-                      Taxis, Grab, and private vehicles are welcome. Both venues are easily accessible.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Travel Tips */}
-              <div className="bg-gradient-to-br from-[#402921]/80 to-[#583016]/70 rounded-xl p-3 sm:p-4 border-2 border-[#BB8A3D]/40 shadow-sm">
-                <p className="text-xs font-semibold text-[#FFF6E7] mb-2 flex items-center gap-1.5">
-                  <span className="text-sm">📍</span>
-                  Quick Tips
-                </p>
-                <ul className="text-xs text-[#FFF6E7] space-y-1.5">
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#FFF6E7] mt-0.5">•</span>
-                    <span>Plan your route ahead of time to avoid delays</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#FFF6E7] mt-0.5">•</span>
-                    <span>Wear comfortable shoes for easy movement</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#FFF6E7] mt-0.5">•</span>
-                    <span>Coordinate with friends for carpooling</span>
-                  </li>
-                </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      {/* Enhanced Image Modal */}
+      {/* Enhanced Modal - Premium Design */}
       {showImageModal && (
         <div 
-          className="fixed inset-0 bg-gradient-to-br from-black/95 via-black/90 to-black/95 backdrop-blur-xl z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 animate-in fade-in duration-500"
+          className="fixed inset-0 bg-black/97 backdrop-blur-lg z-50 flex items-start justify-center p-3 sm:p-4 md:p-6 animate-in fade-in duration-300 overflow-y-auto overscroll-contain"
           onClick={() => setShowImageModal(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="details-modal-title"
         >
-          {/* Decorative background elements */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#402921]/15 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#BB8A3D]/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#8096AE]/15 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#818D77]/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
           </div>
 
-          <div className="relative max-w-6xl w-full max-h-[95vh] sm:max-h-[90vh] bg-gradient-to-br from-white via-white to-[#FFF6E7]/20 rounded-3xl overflow-hidden shadow-2xl border-2 border-[#BB8A3D]/30 animate-in zoom-in-95 duration-500 group relative"
+          <div 
+            className="relative w-full max-w-lg sm:max-w-2xl md:max-w-4xl lg:max-w-5xl bg-white/12 backdrop-blur-2xl rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/25 animate-in zoom-in-95 duration-300 my-6 sm:my-8"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Decorative top accent */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#402921] via-[#BB8A3D] to-[#402921]" />
-            
-            {/* Enhanced close button */}
+            {/* Close Button */}
             <button
               onClick={() => setShowImageModal(null)}
-              className="absolute top-4 right-4 sm:top-5 sm:right-5 md:top-6 md:right-6 z-20 bg-white/95 hover:bg-white backdrop-blur-sm p-2.5 sm:p-3 rounded-xl shadow-xl transition-all duration-300 hover:scale-110 hover:shadow-2xl active:scale-95 border-2 border-[#BB8A3D]/40 group/close"
+              className="absolute top-5 right-5 sm:top-6 sm:right-6 z-20 bg-white/15 hover:bg-white/25 backdrop-blur-sm p-3.5 rounded-xl shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 border border-white/25"
               title="Close (ESC)"
-              style={{ color: '#402921' }}
+              aria-label="Close modal"
+              ref={closeButtonRef}
             >
-              <X className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 group-hover/close:text-red-500 transition-colors" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </button>
 
-            {/* Venue badge */}
-            <div className="absolute top-4 left-4 sm:top-5 sm:left-5 md:top-6 md:left-6 z-20">
-              <div className="flex items-center gap-2 bg-white/95 backdrop-blur-md px-4 py-2 rounded-full shadow-xl border-2 border-[#BB8A3D]/40">
-                {showImageModal === 'ceremony' ? (
-                  <>
-                    <Heart className="w-4 h-4 text-[#402921]" fill="currentColor" />
-                    <span className="text-xs sm:text-sm font-bold text-[#402921]">Ceremony Venue</span>
-                  </>
-                ) : (
-                  <>
-                    <Utensils className="w-4 h-4 text-[#402921]" />
-                    <span className="text-xs sm:text-sm font-bold text-[#402921]">Reception Venue</span>
-                  </>
-                )}
+            {/* Venue Badge */}
+            <div className="absolute top-5 left-5 sm:top-6 sm:left-6 z-20">
+              <div className="flex items-center gap-2.5 bg-white/15 backdrop-blur-md px-4 py-2.5 rounded-full shadow-lg border border-white/25">
+                <Heart className="w-4 h-4 text-white" fill="currentColor" />
+                <span className="text-xs sm:text-sm font-semibold text-white">Ceremony & Reception</span>
               </div>
             </div>
 
-            {/* Image section with enhanced effects */}
-            <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] bg-gradient-to-br from-[#402921]/5 via-white/80 to-[#CDAC77]/15 overflow-hidden">
-              {/* Shimmer effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-0" />
-              
+            {/* Image */}
+            <div className="relative w-full h-[42vh] sm:h-[50vh] md:h-[60vh] bg-white/5 overflow-hidden">
               <Image
                 src={showImageModal === 'ceremony' ? "/Details/church.png" : "/Details/D-L-Garden.png"}
-                alt={showImageModal === 'ceremony' ? siteConfig.ceremony.location : siteConfig.reception.location}
+                alt={siteConfig.ceremony.location}
                 fill
-                className="object-contain p-6 sm:p-8 md:p-10 transition-transform duration-700 group-hover:scale-105 z-10"
-                sizes="95vw"
+                className="object-contain p-4 sm:p-6 md:p-8"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
                 priority
               />
             </div>
 
-            {/* Enhanced content section */}
-            <div className="p-5 sm:p-6 md:p-8 bg-gradient-to-br from-white to-white/95 backdrop-blur-sm border-t-2 border-[#BB8A3D]/30 relative">
-              {/* Decorative line */}
-              <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#BB8A3D]/40 to-transparent" />
-              
-              <div className="space-y-5">
-                {/* Header with venue info */}
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-                  <div className="space-y-2">
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold flex items-center gap-3 text-[#402921]">
-                      {showImageModal === 'ceremony' ? (
-                        <Heart className="w-6 h-6 text-[#BB8A3D]" fill="currentColor" />
-                      ) : (
-                        <Utensils className="w-6 h-6 text-[#BB8A3D]" />
-                      )}
-                      {showImageModal === 'ceremony' ? siteConfig.ceremony.venue : siteConfig.reception.venue}
-                    </h3>
-                    <div className="flex items-center gap-2 text-sm text-[#402921] opacity-70">
-                      <MapPin className="w-4 h-4 text-[#BB8A3D]" />
-                      <span>{showImageModal === 'ceremony' ? siteConfig.ceremony.location : siteConfig.reception.location}</span>
-          </div>
-
-                    {/* Date & Time info */}
-                    {showImageModal === 'ceremony' && (
-                      <div className="flex items-center gap-2 text-sm font-medium text-[#402921] bg-[#CDAC77]/25 px-3 py-2 rounded-lg border border-[#BB8A3D]/20">
-                        <Clock className="w-4 h-4 text-[#BB8A3D]" />
-                        <span>{siteConfig.ceremony.date} at {siteConfig.ceremony.time}</span>
-                      </div>
-                    )}
-                    {showImageModal === 'reception' && (
-                      <div className="flex items-center gap-2 text-sm font-medium text-[#402921] bg-[#CDAC77]/25 px-3 py-2 rounded-lg border border-[#BB8A3D]/20">
-                        <Clock className="w-4 h-4 text-[#BB8A3D]" />
-                        <span>{siteConfig.reception.date} - {siteConfig.reception.time}</span>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Action buttons */}
-                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
-                    <button
-                      onClick={() => copyToClipboard(
-                        showImageModal === 'ceremony' 
-                          ? siteConfig.ceremony.location
-                          : siteConfig.reception.location,
-                        `modal-${showImageModal}`
-                      )}
-                      className="flex items-center justify-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 bg-white border-2 border-[#BB8A3D] text-[#402921] rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 shadow-md hover:bg-[#CDAC77]/15 whitespace-nowrap"
-                      title="Copy address"
-                    >
-                      {copiedItems.has(`modal-${showImageModal}`) ? (
-                        <>
-                          <Check className="w-4 h-4" />
-                          <span>Copied!</span>
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="w-4 h-4" />
-                          <span>Copy Address</span>
-                        </>
-                      )}
-                    </button>
-
-                    <button
-                      onClick={() => openInMaps(showImageModal === 'ceremony' ? ceremonyMapsLink : receptionMapsLink)}
-                      className="flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-[#402921] to-[#583016] hover:from-[#583016] hover:to-[#402921] text-white rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95 shadow-lg whitespace-nowrap"
-                    >
-                      <Navigation className="w-4 h-4 sm:w-5 sm:h-5" />
-                      <span>Get Directions</span>
-                    </button>
+            {/* Content */}
+            <div className="p-5 sm:p-7 md:p-10 border-t border-white/15 bg-white/5 backdrop-blur-sm">
+              <div className="space-y-6 sm:space-y-8">
+                <div>
+                  <h3 id="details-modal-title" className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4 flex items-center gap-3">
+                    <Heart className="w-6 h-6 md:w-7 md:h-7 text-white" fill="currentColor" />
+                    {siteConfig.ceremony.venue}
+                  </h3>
+                  <div className="flex items-center gap-2.5 text-sm sm:text-base text-white/85 mb-4 sm:mb-5">
+                    <MapPin className="w-5 h-5 flex-shrink-0" />
+                    <span className="break-words text-pretty">{siteConfig.ceremony.location}</span>
                   </div>
                 </div>
 
-                {/* Additional info */}
-                <div className="flex items-center gap-2 text-xs text-[#402921] opacity-60">
-                  <span className="flex items-center gap-1.5">
-                    <Camera className="w-3 h-3" />
-                    Click outside to close
-                  </span>
-                  <span className="hidden sm:inline">•</span>
-                  <span className="hidden sm:inline-flex items-center gap-1.5">
-                    Press ESC to close
-                  </span>
+                {/* Date & Time */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                  <div className="bg-gradient-to-br from-white/12 to-white/6 rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-white/15 shadow-lg">
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <Heart className="w-5 h-5 text-white" fill="currentColor" />
+                      <p className="text-xs font-bold text-white/60 uppercase tracking-wider">Ceremony</p>
+                    </div>
+                    <p className="text-base sm:text-lg font-bold text-white mb-1.5 sm:mb-2">{siteConfig.ceremony.date}</p>
+                    <p className="text-sm sm:text-base text-white/85">{siteConfig.ceremony.time}</p>
+                  </div>
+                  <div className="bg-gradient-to-br from-white/12 to-white/6 rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-white/15 shadow-lg">
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <Utensils className="w-5 h-5 text-white" />
+                      <p className="text-xs font-bold text-white/60 uppercase tracking-wider">Reception</p>
+                    </div>
+                    <p className="text-base sm:text-lg font-bold text-white mb-1.5 sm:mb-2">{siteConfig.reception.date}</p>
+                    <p className="text-sm sm:text-base text-white/85">{siteConfig.reception.time}</p>
+                  </div>
+                </div>
+
+                {/* Actions */}
+                <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4">
+                  <a
+                    href="https://www.facebook.com/MaiPavilionEventsPlace/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 bg-gradient-to-r from-[#1877F2] to-[#166FE5] hover:from-[#166FE5] hover:to-[#1458c4] text-white rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg"
+                  >
+                    <Facebook className="w-4 h-4" />
+                    <span>Facebook</span>
+                  </a>
+                  <button
+                    onClick={() => copyToClipboard(siteConfig.ceremony.location, `modal-${showImageModal}`)}
+                    className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 bg-white/12 hover:bg-white/18 border border-white/25 text-white rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg"
+                  >
+                    {copiedItems.has(`modal-${showImageModal}`) ? (
+                      <>
+                        <Check className="w-4 h-4" />
+                        <span>Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-4 h-4" />
+                        <span>Copy Address</span>
+                      </>
+                    )}
+                  </button>
+                  <button
+                    onClick={() => openInMaps(ceremonyMapsLink)}
+                    className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 bg-gradient-to-r from-[#818D77] to-[#7a826f] hover:from-[#7a826f] hover:to-[#6f7668] text-white rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg"
+                  >
+                    <Navigation className="w-4 h-4" />
+                    <span>Get Directions</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -594,4 +589,3 @@ export function Details() {
     </Section>
   )
 }
-

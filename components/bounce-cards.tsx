@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
+import Image from "next/image"
 import { gsap } from "gsap"
 
 interface BounceCardsProps {
@@ -142,7 +143,15 @@ export default function BounceCards({
           onTouchStart={() => pushSiblings(idx)}
           onTouchEnd={() => resetSiblings()}
         >
-          <img className="w-full h-full object-cover" src={src || "/placeholder.svg"} alt={`card-${idx}`} />
+          <Image 
+            className="w-full h-full object-cover" 
+            src={src || "/placeholder.svg"} 
+            alt={`card-${idx}`} 
+            width={200} 
+            height={200}
+            loading={idx === 0 ? "eager" : "lazy"}
+            priority={idx === 0}
+          />
         </div>
       ))}
     </div>

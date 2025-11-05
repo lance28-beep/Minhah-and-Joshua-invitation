@@ -81,18 +81,32 @@ export function Entourage() {
 
   // Helper component for elegant section titles
   const SectionTitle = ({ children }: { children: React.ReactNode }) => (
-    <h3 className="text-xl sm:text-2xl md:text-3xl font-serif font-semibold text-[#BB8A3D] mb-4 sm:mb-6 text-center tracking-wide">
-      {children}
-    </h3>
+    <div className="text-center">
+      <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-white tracking-wide">
+        {children}
+      </h3>
+      <div className="mx-auto mt-2 sm:mt-3 h-[2px] w-16 sm:w-20 rounded-full bg-gradient-to-r from-[#8096AE] via-white/70 to-[#818D77]" />
+    </div>
   )
 
   // Helper component for name items with role title
   const NameItem = ({ member }: { member: EntourageMember }) => (
-    <div className="flex flex-col items-center justify-center py-2 sm:py-2.5">
-      <p className="text-[#FFF6E7] text-base sm:text-lg font-medium text-center">{member.Name}</p>
-      {member.RoleTitle && (
-        <p className="text-[#CDAC77] text-xs sm:text-sm font-light text-center mt-1">{member.RoleTitle}</p>
-      )}
+    <div className="group relative rounded-xl px-3 py-2 sm:px-4 sm:py-3 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_6px_24px_rgba(0,0,0,0.25)] focus-within:ring-2 focus-within:ring-[#8096AE]/60">
+      {/* glass micro-card */}
+      <div className="absolute inset-0 rounded-xl bg-white/5" />
+      <div className="absolute inset-px rounded-[calc(0.75rem-1px)] border border-white/10" />
+      <div className="relative flex flex-col items-center">
+        <p className="text-white text-sm sm:text-base md:text-lg font-medium text-center tracking-wide">
+          {member.Name}
+        </p>
+        {member.RoleTitle && (
+          <p className="text-white/70 text-[11px] sm:text-xs font-light text-center mt-1">
+            {member.RoleTitle}
+          </p>
+        )}
+      </div>
+      {/* sheen on hover */}
+      <div className="pointer-events-none absolute inset-0 rounded-xl bg-[linear-gradient(120deg,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0.06)_40%,transparent_60%)] -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
     </div>
   )
 
@@ -113,9 +127,24 @@ export function Entourage() {
     if (singleTitle) {
       return (
         <div className="mb-8 sm:mb-10 md:mb-12">
-          <SectionTitle>{singleTitle}</SectionTitle>
-          <div className={`grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-3 ${centerContent ? 'max-w-2xl mx-auto' : ''}`}>
-            {children}
+          <div className="relative rounded-2xl bg-[#818D77]/20 border border-[#818D77] backdrop-blur-md p-4 sm:p-6 lg:p-7 overflow-hidden ring-1 ring-[#8096AE]/50 hover:ring-[#8096AE]/70 transition-colors hover:shadow-[0_12px_40px_rgba(0,0,0,0.35)]">
+            {/* glass effect */}
+            <div className="pointer-events-none absolute inset-0 rounded-2xl">
+              <div className="absolute inset-0 rounded-2xl bg-white/5" />
+              <div className="absolute inset-px rounded-[calc(1rem-1px)] border border-white/10" />
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+            </div>
+            {/* corner botanical strokes */}
+            <svg className="absolute -top-2 -left-2 w-28 opacity-25" viewBox="0 0 200 200" fill="none" stroke="white" strokeWidth="1">
+              <path d="M10 150 C 40 120, 60 80, 100 60 C 140 40, 160 30, 190 10"/>
+            </svg>
+            <svg className="absolute -bottom-2 -right-2 w-28 opacity-25 rotate-180" viewBox="0 0 200 200" fill="none" stroke="white" strokeWidth="1">
+              <path d="M10 150 C 40 120, 60 80, 100 60 C 140 40, 160 30, 190 10"/>
+            </svg>
+            <SectionTitle>{singleTitle}</SectionTitle>
+            <div className={`grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-3 sm:gap-x-5 md:gap-x-6 gap-y-2.5 sm:gap-y-3.5 ${centerContent ? 'max-w-2xl mx-auto' : ''}`}>
+              {children}
+            </div>
           </div>
         </div>
       )
@@ -123,16 +152,31 @@ export function Entourage() {
 
     return (
       <div className="mb-8 sm:mb-10 md:mb-12">
-        <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-4 sm:gap-x-6 md:gap-x-8 mb-4 sm:mb-6">
-          {leftTitle && (
-            <SectionTitle>{leftTitle}</SectionTitle>
-          )}
-          {rightTitle && (
-            <SectionTitle>{rightTitle}</SectionTitle>
-          )}
-        </div>
-        <div className={`grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-3 ${centerContent ? 'max-w-2xl mx-auto' : ''}`}>
-          {children}
+        <div className="relative rounded-2xl bg-[#818D77]/20 border border-[#818D77] backdrop-blur-md p-4 sm:p-6 lg:p-7 overflow-hidden ring-1 ring-[#8096AE]/50 hover:ring-[#8096AE]/70 transition-colors hover:shadow-[0_12px_40px_rgba(0,0,0,0.35)]">
+          {/* glass effect */}
+          <div className="pointer-events-none absolute inset-0 rounded-2xl">
+            <div className="absolute inset-0 rounded-2xl bg-white/5" />
+            <div className="absolute inset-px rounded-[calc(1rem-1px)] border border-white/10" />
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+          </div>
+          {/* corner botanical strokes */}
+          <svg className="absolute -top-2 -left-2 w-28 opacity-25" viewBox="0 0 200 200" fill="none" stroke="white" strokeWidth="1">
+            <path d="M10 150 C 40 120, 60 80, 100 60 C 140 40, 160 30, 190 10"/>
+          </svg>
+          <svg className="absolute -bottom-2 -right-2 w-28 opacity-25 rotate-180" viewBox="0 0 200 200" fill="none" stroke="white" strokeWidth="1">
+            <path d="M10 150 C 40 120, 60 80, 100 60 C 140 40, 160 30, 190 10"/>
+          </svg>
+          <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-3 sm:gap-x-5 md:gap-x-8 mb-3 sm:mb-5">
+            {leftTitle && (
+              <SectionTitle>{leftTitle}</SectionTitle>
+            )}
+            {rightTitle && (
+              <SectionTitle>{rightTitle}</SectionTitle>
+            )}
+          </div>
+          <div className={`grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-3 sm:gap-x-5 md:gap-x-6 gap-y-2.5 sm:gap-y-3.5 ${centerContent ? 'max-w-2xl mx-auto' : ''}`}>
+            {children}
+          </div>
         </div>
       </div>
     )
@@ -141,70 +185,62 @@ export function Entourage() {
   return (
     <section
       id="entourage"
-      className="relative min-h-screen py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 overflow-hidden"
+      className="relative min-h-screen py-10 sm:py-14 md:py-16 lg:py-20 xl:py-24 overflow-hidden bg-transparent"
     >
-      {/* Decorative background elements for motif cohesion */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        {/* Floating geometric shapes */}
-        <div className="hidden sm:block absolute top-8 left-6 w-24 h-24 bg-[#BB8A3D]/10 rounded-full blur-2xl animate-pulse" />
-        <div className="hidden sm:block absolute top-20 right-10 w-20 h-20 bg-[#CDAC77]/15 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="hidden sm:block absolute bottom-16 left-10 w-28 h-28 bg-[#BB8A3D]/8 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="sm:hidden absolute top-6 right-6 w-14 h-14 bg-[#CDAC77]/12 rounded-full blur-lg" />
-        <div className="absolute bottom-10 right-10 w-20 h-20 bg-[#CDAC77]/12 rounded-full blur-xl animate-pulse" style={{ animationDelay: '0.5s' }} />
-        
-        {/* Decorative lines */}
-        <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#BB8A3D]/35 to-transparent" />
-        <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#CDAC77]/30 to-transparent" />
-        
-        {/* Corner decorative elements */}
-        <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-br-3xl" />
-        <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-bl-3xl" />
-        <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-tr-3xl" />
-        <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-tl-3xl" />
-        
-        {/* Decorative corner images */}
-        <img
-          src="/decoration/corner_right-top.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute top-0 right-0 w-36 sm:w-44 md:w-56 lg:w-64 opacity-80 select-none"
-        />
-        <img
-          src="/decoration/corner_right-top.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute bottom-0 left-0 w-28 sm:w-36 md:w-48 lg:w-56 opacity-70 rotate-180 select-none"
-        />
-      </div>
+      {/* Corner decoration */}
+      <img
+        src="/decoration/bottom-righ-corner-flower.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute bottom-0 right-0 w-40 sm:w-56 md:w-72 lg:w-80 opacity-90"
+      />
+      <img
+        src="/decoration/bottom-righ-corner-flower.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute bottom-0 left-0 w-40 sm:w-56 md:w-72 lg:w-80 opacity-90 -scale-x-100"
+      />
+      <img
+        src="/decoration/bottom-righ-corner-flower.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute top-0 right-0 w-36 sm:w-52 md:w-64 lg:w-72 opacity-80 -scale-y-100"
+      />
+      <img
+        src="/decoration/bottom-righ-corner-flower.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute top-0 left-0 w-36 sm:w-52 md:w-64 lg:w-72 opacity-80 -scale-x-100 -scale-y-100"
+      />
 
       {/* Section Header */}
-      <div className="relative z-10 text-center mb-12 sm:mb-16 md:mb-20">
+      <div className="relative z-10 text-center mb-8 sm:mb-12 md:mb-16">
         {/* Decorative ornaments */}
         <div className="flex items-center justify-center gap-6 mb-6">
-          <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#BB8A3D]/60 to-[#CDAC77]/30" />
+          <div className="w-16 h-px bg-[#818D77]/60" />
           <div className="flex gap-2">
-            <div className="w-2 h-2 bg-[#BB8A3D] rounded-full" />
-            <div className="w-1 h-1 bg-[#FFF6E7] rounded-full self-center" />
-            <div className="w-2 h-2 bg-[#BB8A3D] rounded-full" />
+            <div className="w-2 h-2 bg-white rounded-full" />
+            <div className="w-1 h-1 bg-white/80 rounded-full self-center" />
+            <div className="w-2 h-2 bg-white rounded-full" />
           </div>
-          <div className="w-16 h-px bg-gradient-to-l from-transparent via-[#BB8A3D]/60 to-[#CDAC77]/30" />
+          <div className="w-16 h-px bg-[#818D77]/60" />
         </div>
 
-        <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-[#FFF6E7] mb-6 text-balance drop-shadow-2xl relative">
-          <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-br from-[#BB8A3D] via-[#CDAC77] to-[#FFF6E7]">Wedding Entourage</span>
-          {/* Text glow effect */}
-          <span className="absolute inset-0 text-[#BB8A3D]/20 blur-2xl -z-10">Wedding Entourage</span>
+        {/* Primary titles */}
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-4 text-balance drop-shadow-2xl">
+          Wedding Entourage
         </h2>
-
-        <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif font-semibold text-[#BB8A3D] mb-3 sm:mb-4">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-serif font-semibold text-white/85 mb-8">
           Organizational Chart
         </h3>
 
+        {/* Couple highlight removed per request */}
+
         {/* Bottom decorative ornaments */}
         <div className="flex items-center justify-center gap-6 mt-8">
-          <div className="w-12 h-px bg-gradient-to-r from-transparent via-[#CDAC77]/40 to-[#FFF6E7]/20" />
-          <div className="w-1 h-1 bg-[#CDAC77] rounded-full" />
-          <div className="w-12 h-px bg-gradient-to-l from-transparent via-[#CDAC77]/40 to-[#FFF6E7]/20" />
+          <div className="w-12 h-px bg-[#818D77]/40" />
+          <div className="w-1 h-1 bg-white/80 rounded-full" />
+          <div className="w-12 h-px bg-[#818D77]/40" />
         </div>
       </div>
 
@@ -214,17 +250,17 @@ export function Entourage() {
           {isLoading ? (
             <div className="flex items-center justify-center py-24">
               <div className="flex flex-col items-center gap-4">
-                <Loader2 className="h-12 w-12 animate-spin text-[#BB8A3D]" />
-                <span className="text-[#FFF6E7] font-serif text-lg">Loading entourage...</span>
+                <Loader2 className="h-12 w-12 animate-spin text-white" />
+                <span className="text-white font-serif text-lg">Loading entourage...</span>
               </div>
             </div>
           ) : error ? (
             <div className="flex items-center justify-center py-24">
               <div className="text-center">
-                <p className="text-red-500 font-serif text-lg mb-2">{error}</p>
+                <p className="text-white font-serif text-lg mb-2">{error}</p>
                 <button
                   onClick={fetchEntourage}
-                  className="text-[#BB8A3D] hover:text-[#CDAC77] font-serif underline"
+                  className="text-white hover:text-[#818D77] font-serif underline"
                 >
                   Try again
                 </button>
@@ -232,8 +268,8 @@ export function Entourage() {
             </div>
           ) : entourage.length === 0 ? (
             <div className="text-center py-24">
-              <Users className="h-16 w-16 text-[#BB8A3D]/50 mx-auto mb-4" />
-              <p className="text-[#FFF6E7] font-serif text-lg">No entourage members yet</p>
+              <Users className="h-16 w-16 text-white/70 mx-auto mb-4" />
+              <p className="text-white font-serif text-lg">No entourage members yet</p>
             </div>
           ) : (
             <>

@@ -3,9 +3,12 @@
 import { useState, useEffect } from "react"
 import { motion } from "motion/react"
 import { Instagram, Facebook, MapPin, Calendar, Clock, Heart, MessageCircle } from "lucide-react"
+import { siteConfig } from "@/content/site"
 
 export function Footer() {
   const year = new Date().getFullYear()
+
+  const [month, day, yearStr] = siteConfig.ceremony.date.replace(",", "").split(" ")
 
   const quotes = [
     "In every love story, there's a moment when two hearts become one, and ours is just beginning.",
@@ -73,25 +76,21 @@ export function Footer() {
 
   return (
     <footer 
-      className="relative z-20 mt-16 text-cream overflow-hidden bg-gradient-to-b from-[#402921] via-[#583016] to-[#402921]"
+      className="relative z-20 mt-16 text-cream overflow-hidden bg-[#8096AE]"
     >
       {/* Decorative background elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Floating geometric shapes */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-[#BB8A3D]/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-20 right-20 w-24 h-24 bg-[#CDAC77]/15 rounded-full blur-lg animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-20 left-20 w-40 h-40 bg-[#BB8A3D]/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute bottom-10 right-10 w-20 h-20 bg-[#CDAC77]/12 rounded-full blur-xl animate-pulse" style={{ animationDelay: '0.5s' }} />
+        <div className="absolute top-10 left-10 w-32 h-32 bg-[#818D77]/15 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-20 right-20 w-24 h-24 bg-[#B8B8B8]/20 rounded-full blur-lg animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-20 left-20 w-40 h-40 bg-[#D0D2D1]/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-10 right-10 w-20 h-20 bg-[#8096AE]/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '0.5s' }} />
         
         {/* Decorative lines */}
-        <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#BB8A3D]/30 to-transparent" />
-        <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#CDAC77]/25 to-transparent" />
+        <div className="absolute top-1/4 left-0 w-full h-px bg-[#D0D2D1]/30" />
+        <div className="absolute bottom-1/4 left-0 w-full h-px bg-[#B8B8B8]/25" />
         
-        {/* Corner decorative elements */}
-        <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-br-3xl" />
-        <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-bl-3xl" />
-        <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-tr-3xl" />
-        <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-tl-3xl" />
+        {/* Corner decorative images (all corners) */}
         {/* Decorative corner images */}
         <img
           src="/decoration/corner_right-top.png"
@@ -99,12 +98,24 @@ export function Footer() {
           aria-hidden="true"
           className="absolute top-0 right-0 w-36 sm:w-44 md:w-56 lg:w-64 opacity-80 select-none"
         />
-        {/* <img
+        <img
           src="/decoration/corner_right-top.png"
           alt=""
           aria-hidden="true"
           className="absolute bottom-0 left-0 w-28 sm:w-36 md:w-48 lg:w-56 opacity-70 rotate-180 select-none"
-        /> */}
+        />
+        <img
+          src="/decoration/corner_right-top.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute top-0 left-0 w-28 sm:w-36 md:w-48 lg:w-56 opacity-80 -scale-x-100 select-none"
+        />
+        <img
+          src="/decoration/corner_right-top.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute bottom-0 right-0 w-28 sm:w-36 md:w-48 lg:w-56 opacity-80 -scale-y-100 select-none"
+        />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 md:px-8 py-16">
@@ -113,13 +124,13 @@ export function Footer() {
           <div className="max-w-2xl w-full">
             {/* Header */}
             <div className="text-center mb-8">
-              <p className="text-xs sm:text-sm md:text-base text-[#E0CFB5] font-semibold uppercase tracking-[0.2em] mb-3 drop-shadow-md">
+              <p className="text-xs sm:text-sm md:text-base text-[#D0D2D1] font-semibold uppercase tracking-[0.2em] mb-3 drop-shadow-md">
                 Save The Date
               </p>
               <div className="flex items-center justify-center gap-3 mb-6">
-                <div className="w-8 h-px bg-gradient-to-r from-transparent to-[#D1AB6D]/50" />
-                <div className="w-1.5 h-1.5 bg-[#D1AB6D] rounded-full" />
-                <div className="w-8 h-px bg-gradient-to-l from-transparent to-[#D1AB6D]/50" />
+                <div className="w-8 h-px bg-[#D0D2D1]/50" />
+                <div className="w-1.5 h-1.5 bg-[#B8B8B8] rounded-full" />
+                <div className="w-8 h-px bg-[#D0D2D1]/50" />
               </div>
             </div>
 
@@ -129,41 +140,41 @@ export function Footer() {
                 {/* Day and Month */}
                 <div className="text-center sm:text-right">
                   <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-[#F0F0F0] leading-none drop-shadow-lg">
-                    January
+                    {month}
                   </p>
-                  <p className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-[#D1AB6D] leading-none mt-1 drop-shadow-lg">
-                    10
+                  <p className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-[#818D77] leading-none mt-1 drop-shadow-lg">
+                    {day}
                   </p>
                 </div>
                 
                 {/* Separator */}
-                <div className="hidden sm:block w-px h-16 bg-gradient-to-b from-transparent via-[#D1AB6D]/50 to-transparent" />
+                <div className="hidden sm:block w-px h-16 bg-[#D0D2D1]/50" />
                 
                 {/* Year */}
                 <div className="text-center sm:text-left">
                   <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-[#F0F0F0] leading-none drop-shadow-lg">
-                    2026
+                    {yearStr}
                   </p>
                 </div>
               </div>
             </div>
 
             {/* Time Section */}
-            <div className="flex items-center justify-center gap-3 mb-2">
+              <div className="flex items-center justify-center gap-3 mb-2">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-[#D1AB6D] rounded-full animate-pulse" />
-                <p className="text-lg sm:text-xl md:text-2xl font-sans font-semibold text-[#E0CFB5] tracking-wide drop-shadow-md">
-                  2:00 PM
+                <div className="w-2 h-2 bg-[#818D77] rounded-full animate-pulse" />
+                <p className="text-lg sm:text-xl md:text-2xl font-sans font-semibold text-white tracking-wide drop-shadow-md">
+                  {siteConfig.ceremony.time}
                 </p>
-                <div className="w-2 h-2 bg-[#D1AB6D] rounded-full animate-pulse" />
+                <div className="w-2 h-2 bg-[#818D77] rounded-full animate-pulse" />
               </div>
             </div>
 
             {/* Bottom decorative element */}
             <div className="flex items-center justify-center mt-6">
-              <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#D1AB6D]/40 to-transparent" />
-              <div className="mx-3 w-1 h-1 bg-[#E0CFB5] rounded-full" />
-              <div className="w-16 h-px bg-gradient-to-l from-transparent via-[#D1AB6D]/40 to-transparent" />
+              <div className="w-16 h-px bg-[#D0D2D1]/40" />
+              <div className="mx-3 w-1 h-1 bg-[#B8B8B8] rounded-full" />
+              <div className="w-16 h-px bg-[#D0D2D1]/40" />
             </div>
           </div>
         </motion.div>
@@ -176,16 +187,16 @@ export function Footer() {
                 <div className="w-12 h-12 bg-white/15 rounded-full flex items-center justify-center border border-white/20">
                   <Heart className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-serif text-3xl md:text-4xl font-bold text-white">Erda & Russell</h3>
+                <h3 className="font-serif text-3xl md:text-4xl font-bold text-white">{`${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname}`}</h3>
               </div>
               <div className="space-y-4">
                 <div className="flex items-center gap-3 font-lora text-white/95">
                   <Calendar className="w-5 h-5 text-white/80" />
-                  <span className="text-lg">January 10, 2026</span>
+                  <span className="text-lg">{siteConfig.ceremony.date}</span>
                 </div>
                 <div className="flex items-center gap-3 font-lora text-white/90">
                   <MapPin className="w-5 h-5 text-white/70" />
-                  <span>San Jose the Husband of Mary Parish, Buyagan, La Trinidad, Benguet</span>
+                  <span>{siteConfig.ceremony.location}</span>
                 </div>
               </div>
             </div>
@@ -215,11 +226,11 @@ export function Footer() {
               <div className="space-y-3 font-lora text-white/90 text-sm">
                 <div className="flex items-center gap-3">
                   <MapPin className="w-4 h-4 text-white/70" />
-                  <span>San Jose the Husband of Mary Parish, Buyagan, La Trinidad, Benguet</span>
+                  <span>{siteConfig.ceremony.location}</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Clock className="w-4 h-4 text-white/70" />
-                  <span>2:00 PM</span>
+                  <span>{siteConfig.ceremony.time}</span>
                 </div>
               </div>
             </motion.div>
@@ -234,7 +245,7 @@ export function Footer() {
               <div className="space-y-3 font-lora text-white/90 text-sm">
                 <div className="flex items-center gap-3">
                   <MapPin className="w-4 h-4 text-white/70" />
-                  <span>D & L Garden Pavilion, Halsema Highway, La Trinidad, Benguet</span>
+                  <span>{siteConfig.reception.location}</span>
                 </div>
               </div>
             </motion.div>
@@ -250,7 +261,7 @@ export function Footer() {
                 <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-11 w-11 rounded-full bg-white/5 ring-1 ring-white/15 hover:bg-white/10 transition-colors">
                   <Instagram className="w-5 h-5 text-white" />
                 </a>
-                <a href="https://www.facebook.com/knginalawagan" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-11 w-11 rounded-full bg-white/5 ring-1 ring-white/15 hover:bg-white/10 transition-colors">
+                <a href="https://www.facebook.com/chainmina" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-11 w-11 rounded-full bg-white/5 ring-1 ring-white/15 hover:bg-white/10 transition-colors">
                   <Facebook className="w-5 h-5 text-white" />
                 </a>
                 <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-11 w-11 rounded-full bg-white/5 ring-1 ring-white/15 hover:bg-white/10 transition-colors">
@@ -278,7 +289,7 @@ export function Footer() {
         <motion.div className="border-t border-white/20 pt-8" variants={fadeInUp}>
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <p className="text-white/85 font-lora text-sm">© {year} Erda & Russell. All rights reserved.</p>
+              <p className="text-white/85 font-lora text-sm">© {year} {`${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname}`}. All rights reserved.</p>
               <p className="text-white/90 font-lora text-sm mt-1">
                 Made with 💕 for our special day
               </p>
@@ -313,7 +324,7 @@ export function Footer() {
 
         {/* Floating Messenger Button */}
         <a
-          href="https://m.me/knginalawagan"
+          href="https://m.me/chainmina"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Contact us on Messenger"

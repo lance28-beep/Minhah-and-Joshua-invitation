@@ -169,3 +169,20 @@ html {
 .animate-shimmer {
   animation: shimmer 2s infinite;
 }
+
+/* Marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Respect reduced motion: disable marquee animation */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none !important;
+  }
+}

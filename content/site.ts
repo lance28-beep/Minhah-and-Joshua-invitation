@@ -1,36 +1,36 @@
 export const siteConfig = {
   couple: {
-    bride: "Erda Precious Ricohermoso",
-    brideNickname: "Erda",
-    groom: "Russell Ticbaen",
-    groomNickname: "Russell",
+    bride: "Minhah",
+    brideNickname: "Minhah",
+    groom: "Joshua",
+    groomNickname: "Joshua",
   },
   wedding: {
-    date: "January 10, 2026",
-    time: "2:00 PM",
-    venue: "San Jose the Husband of Mary Parish, Buyagan, La Trinidad, Benguet",
+    date: "June 12, 2026",
+    time: "4:00 PM",
+    venue: "Mai Pavillion, 20 Tabing Ilog, Bacoor, Cavite",
     tagline: "are getting married!",
-    theme: "Classic",
-    motif: "#402921, #BB8A3D, #CDAC77, #FFF6E7",
+    theme: "Dusty Blue and Sage Green",
+    motif: "Dusty Blue and Sage Green",
   },
   details: {
     rsvp: {
-      deadline: "January 8, 2026",
+      deadline: "June 1, 2026",
     },
   },
   ceremony: {
-    location: "San Jose the Husband of Mary Parish, Buyagan, La Trinidad, Benguet",
-    venue: "San Jose the Husband of Mary Parish",
-    date: "January 10, 2026",
-    day: "Saturday",
-    time: "2:00 PM",
-    entourageTime: "2:00 PM",
-    guestsTime: "2:00 PM",
+    location: "Mai Pavillion, 20 Tabing Ilog, Bacoor, Cavite",
+    venue: "Mai Pavillion",
+    date: "June 12, 2026",
+    day: "Friday",
+    time: "4:00 PM",
+    entourageTime: "4:00 PM",
+    guestsTime: "4:00 PM",
   },
   reception: {
-    location: "D & L Garden Pavilion, Halsema Highway, La Trinidad, Benguet",
-    venue: "D & L Garden Pavilion",
-    date: "January 10, 2026",
+    location: "Mai Pavillion, 20 Tabing Ilog, Bacoor, Cavite",
+    venue: "Mai Pavillion",
+    date: "June 12, 2026",
     time: "Following the ceremony",
   },
   dressCode: {
@@ -46,13 +46,7 @@ export const siteConfig = {
     },
     note: "Please avoid jeans and casual attire."
   },
-  narrative: `It all started right here — where fate decided our paths should cross. \n
-“Yes, beb, dito kami nagkakilala,” Erda says with a smile. \n
-One day, Russell suddenly went down to Manila — without her knowing. Then came that unforgettable call while he was in a taxi: \n
-“Paano pumunta ng Angono?” he asked. \n
-And just like that, her heart (and her hair) grew a little longer that day. 😉 \n
-Twelve years later — after countless memories, laughter, and adventures — their love has only grown deeper. Together, they’ve built a beautiful life and now share it with the greatest blessing of all: their wonderful child, who completed their lovely family. 💖 \n
-From that first “Hi, babe” to this “I do,” their story has always been written with love — and it’s only the beginning. 💍✨ \n `,
+  narrative: `It all began during the pandemic. \n\nA time when the world seemed to pause, but destiny decided to move in its own mysterious way. We met through our ever-trusted cupids, Ghen and Jed. What we thought was just a simple hangout with friends (na akala namin simpleng meet-up lang) turned out to be fate’s quiet setup. Neither of us expected that day to change our lives. We walked in as strangers brought together by friends, and walked out unknowingly carrying a spark that would grow into the love story we now share. And that ordinary day turned out to be the beginning of our forever.`,
   giftNote: `With all that we have, we are truly blessed. Your presence and prayer are all that we request. \n
 But if you desire to give nonetheless, a monetary gift is the one we suggest.`,
   colors: {

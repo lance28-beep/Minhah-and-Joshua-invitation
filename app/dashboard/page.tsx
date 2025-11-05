@@ -117,7 +117,7 @@ export default function DashboardPage() {
   })
 
   // Password - you can change this!
-  const DASHBOARD_PASSWORD = "wedding2026" // Change this to your preferred password
+  const DASHBOARD_PASSWORD = "june2026" // Change this to your preferred password
 
   // Check if already authenticated
   useEffect(() => {
@@ -835,24 +835,24 @@ export default function DashboardPage() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#402921] via-[#583016] to-[#402921] flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-[#1f2937] via-[#334155] to-[#1f2937] flex items-center justify-center p-4">
         <div className="w-full max-w-md">
-          <div className="bg-white/95 backdrop-blur-md rounded-3xl p-8 shadow-2xl border-2 border-[#BB8A3D]/30">
+          <div className="bg-white/90 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-[#D0D2D1]/60">
             <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#BB8A3D] to-[#CDAC77] rounded-full mb-4">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#8096AE] to-[#818D77] rounded-full mb-4">
                 <Lock className="h-10 w-10 text-white" />
               </div>
-              <h1 className="text-3xl font-serif font-bold text-[#402921] mb-2">
+              <h1 className="text-3xl font-serif font-bold text-[#2F3A3F] mb-2">
                 Wedding Dashboard
               </h1>
-              <p className="text-[#402921]/70 font-sans">
+              <p className="text-[#2F3A3F]/70 font-sans">
                 Enter password to access
               </p>
             </div>
 
             <form onSubmit={handleLogin} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-[#402921] mb-2 font-sans">
+                <label className="block text-sm font-medium text-[#2F3A3F] mb-2 font-sans">
                   Password
                 </label>
                 <input
@@ -860,7 +860,7 @@ export default function DashboardPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter dashboard password"
-                  className="w-full px-4 py-3 border-2 border-[#402921]/20 focus:border-[#402921] rounded-xl font-sans placeholder:text-[#402921]/40 transition-all duration-300 focus:ring-4 focus:ring-[#402921]/10"
+                  className="w-full px-4 py-3 border-2 border-[#D0D2D1] focus:border-[#818D77] rounded-xl font-sans placeholder:text-[#2F3A3F]/40 transition-all duration-300 focus:ring-4 focus:ring-[#818D77]/15"
                   autoFocus
                 />
               </div>
@@ -874,7 +874,7 @@ export default function DashboardPage() {
 
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#402921] to-[#583016] hover:from-[#583016] hover:to-[#583016] text-white py-3 rounded-xl font-semibold"
+                className="w-full bg-gradient-to-r from-[#8096AE] to-[#818D77] hover:from-[#818D77] hover:to-[#8096AE] text-white py-3 rounded-xl font-semibold"
               >
                 Access Dashboard
               </Button>
@@ -886,9 +886,9 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#FFF6E7] to-[#FFF6E7]/50">
+    <div className="min-h-screen bg-gradient-to-br from-[#F5F7F9] to-white">
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#BB8A3D] via-[#CDAC77] to-[#BB8A3D] shadow-lg">
+      <div className="bg-gradient-to-r from-[#8096AE] via-[#818D77] to-[#8096AE] shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div>
@@ -928,12 +928,12 @@ export default function DashboardPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Stats Cards */}
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 mb-6">
-          <div className="bg-white rounded-2xl p-6 shadow-md border border-[#BB8A3D]/20">
+          <div className="bg-white rounded-2xl p-6 shadow-md border border-[#D0D2D1]/60">
             <div className="flex items-center justify-between mb-2">
-              <Users className="h-6 w-6 sm:h-8 sm:w-8 text-[#BB8A3D]" />
-              <span className="text-2xl sm:text-3xl font-bold text-[#402921]">{stats.total}</span>
+              <Users className="h-6 w-6 sm:h-8 sm:w-8 text-[#8096AE]" />
+              <span className="text-2xl sm:text-3xl font-bold text-[#2F3A3F]">{stats.total}</span>
             </div>
-            <p className="text-xs sm:text-sm text-[#402921]/70 font-sans">Total Guests</p>
+            <p className="text-xs sm:text-sm text-[#2F3A3F]/70 font-sans">Total Guests</p>
           </div>
 
           <div className="bg-green-50 rounded-2xl p-6 shadow-md border border-green-200">
@@ -941,7 +941,7 @@ export default function DashboardPage() {
               <CheckCircle className="h-6 w-6 sm:h-8 sm:w-8 text-green-600" />
               <span className="text-2xl sm:text-3xl font-bold text-green-600">{stats.attending}</span>
             </div>
-            <p className="text-xs sm:text-sm text-[#402921]/70 font-sans">Attending</p>
+            <p className="text-xs sm:text-sm text-[#2F3A3F]/70 font-sans">Attending</p>
           </div>
 
           <div className="bg-red-50 rounded-2xl p-6 shadow-md border border-red-200">
@@ -949,7 +949,7 @@ export default function DashboardPage() {
               <XCircle className="h-6 w-6 sm:h-8 sm:w-8 text-red-600" />
               <span className="text-2xl sm:text-3xl font-bold text-red-600">{stats.notAttending}</span>
             </div>
-            <p className="text-xs sm:text-sm text-[#402921]/70 font-sans">Not Attending</p>
+            <p className="text-xs sm:text-sm text-[#2F3A3F]/70 font-sans">Not Attending</p>
           </div>
 
           <div className="bg-yellow-50 rounded-2xl p-6 shadow-md border border-yellow-200">
@@ -957,7 +957,7 @@ export default function DashboardPage() {
               <AlertCircle className="h-6 w-6 sm:h-8 sm:w-8 text-yellow-600" />
               <span className="text-2xl sm:text-3xl font-bold text-yellow-600">{stats.pending}</span>
             </div>
-            <p className="text-xs sm:text-sm text-[#402921]/70 font-sans">Pending</p>
+            <p className="text-xs sm:text-sm text-[#2F3A3F]/70 font-sans">Pending</p>
           </div>
 
           <div className="bg-orange-50 rounded-2xl p-6 shadow-md border border-orange-200">
@@ -965,7 +965,7 @@ export default function DashboardPage() {
               <Bell className="h-6 w-6 sm:h-8 sm:w-8 text-orange-600" />
               <span className="text-2xl sm:text-3xl font-bold text-orange-600">{guestRequests.length}</span>
             </div>
-            <p className="text-xs sm:text-sm text-[#402921]/70 font-sans">Requests</p>
+            <p className="text-xs sm:text-sm text-[#2F3A3F]/70 font-sans">Requests</p>
           </div>
 
           <div className="bg-purple-50 rounded-2xl p-6 shadow-md border border-purple-200">
@@ -973,7 +973,7 @@ export default function DashboardPage() {
               <Crown className="h-6 w-6 sm:h-8 sm:w-8 text-purple-600" />
               <span className="text-2xl sm:text-3xl font-bold text-purple-600">{entourage.length}</span>
             </div>
-            <p className="text-xs sm:text-sm text-[#402921]/70 font-sans">Entourage</p>
+            <p className="text-xs sm:text-sm text-[#2F3A3F]/70 font-sans">Entourage</p>
           </div>
 
           <div className="bg-blue-50 rounded-2xl p-6 shadow-md border border-blue-200">
@@ -981,19 +981,19 @@ export default function DashboardPage() {
               <UserPlus className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600" />
               <span className="text-2xl sm:text-3xl font-bold text-blue-600">{principalSponsors.length}</span>
             </div>
-            <p className="text-xs sm:text-sm text-[#402921]/70 font-sans">Principal Sponsors</p>
+            <p className="text-xs sm:text-sm text-[#2F3A3F]/70 font-sans">Principal Sponsors</p>
           </div>
         </div>
 
         {/* Tabs */}
-        <div className="bg-white rounded-2xl p-1 sm:p-2 shadow-md border border-[#BB8A3D]/20 mb-6">
+        <div className="bg-white rounded-2xl p-1 sm:p-2 shadow-md border border-[#D0D2D1]/60 mb-6">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 sm:gap-2">
             <button
               onClick={() => setActiveTab("guests")}
               className={`w-full px-3 py-2 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2 ${
                 activeTab === "guests"
-                  ? "bg-gradient-to-r from-[#BB8A3D] to-[#CDAC77] text-white shadow-lg"
-                  : "text-[#402921] hover:bg-[#FFF6E7]"
+                  ? "bg-gradient-to-r from-[#8096AE] to-[#818D77] text-white shadow-lg"
+                  : "text-[#2F3A3F] hover:bg-[#F3F5F7]"
               }`}
             >
               <Users className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -1003,8 +1003,8 @@ export default function DashboardPage() {
               onClick={() => setActiveTab("requests")}
               className={`w-full px-3 py-2 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2 relative ${
                 activeTab === "requests"
-                  ? "bg-gradient-to-r from-[#BB8A3D] to-[#CDAC77] text-white shadow-lg"
-                  : "text-[#402921] hover:bg-[#FFF6E7]"
+                  ? "bg-gradient-to-r from-[#8096AE] to-[#818D77] text-white shadow-lg"
+                  : "text-[#2F3A3F] hover:bg-[#F3F5F7]"
               }`}
             >
               <Bell className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -1019,8 +1019,8 @@ export default function DashboardPage() {
               onClick={() => setActiveTab("entourage")}
               className={`w-full px-3 py-2 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2 ${
                 activeTab === "entourage"
-                  ? "bg-gradient-to-r from-[#BB8A3D] to-[#CDAC77] text-white shadow-lg"
-                  : "text-[#402921] hover:bg-[#FFF6E7]"
+                  ? "bg-gradient-to-r from-[#8096AE] to-[#818D77] text-white shadow-lg"
+                  : "text-[#2F3A3F] hover:bg-[#F3F5F7]"
               }`}
             >
               <Crown className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -1030,8 +1030,8 @@ export default function DashboardPage() {
               onClick={() => setActiveTab("principalsponsor")}
               className={`w-full px-3 py-2 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2 ${
                 activeTab === "principalsponsor"
-                  ? "bg-gradient-to-r from-[#BB8A3D] to-[#CDAC77] text-white shadow-lg"
-                  : "text-[#402921] hover:bg-[#FFF6E7]"
+                  ? "bg-gradient-to-r from-[#8096AE] to-[#818D77] text-white shadow-lg"
+                  : "text-[#2F3A3F] hover:bg-[#F3F5F7]"
               }`}
             >
               <UserPlus className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -1044,17 +1044,17 @@ export default function DashboardPage() {
         {activeTab === "guests" && (
           <>
         {/* Search and Add Guest */}
-        <div className="bg-white rounded-2xl p-6 shadow-md border border-[#BB8A3D]/20 mb-6">
+        <div className="bg-white rounded-2xl p-6 shadow-md border border-[#D0D2D1]/60 mb-6">
           <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between mb-4">
             <div className="flex-1 w-full">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#402921]/40" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#2F3A3F]/40" />
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search guests by name or email..."
-                  className="w-full pl-10 pr-4 py-2 border-2 border-[#402921]/20 focus:border-[#402921] rounded-xl font-sans placeholder:text-[#402921]/40 transition-all duration-300 focus:ring-4 focus:ring-[#402921]/10"
+                  className="w-full pl-10 pr-4 py-2 border-2 border-[#D0D2D1] focus:border-[#818D77] rounded-xl font-sans placeholder:text-[#2F3A3F]/40 transition-all duration-300 focus:ring-4 focus:ring-[#818D77]/15"
                 />
               </div>
             </div>
@@ -1064,7 +1064,7 @@ export default function DashboardPage() {
                 setEditingGuest(null)
                 setFormData({ Name: "", Email: "", RSVP: "", Message: "" })
               }}
-              className="bg-gradient-to-r from-[#402921] to-[#583016] hover:from-[#583016] hover:to-[#583016] text-white"
+              className="bg-gradient-to-r from-[#8096AE] to-[#818D77] hover:from-[#818D77] hover:to-[#8096AE] text-white"
             >
               <Plus className="h-4 w-4 mr-2" />
               Add Guest
@@ -1088,42 +1088,42 @@ export default function DashboardPage() {
 
           {/* Add/Edit Form */}
           {(showAddForm || editingGuest) && (
-            <div className="bg-[#FFF6E7]/50 rounded-xl p-6 border-2 border-[#BB8A3D]/30 mb-4">
-              <h3 className="text-xl font-bold text-[#402921] mb-4 font-sans">
+            <div className="bg-white/60 rounded-xl p-6 border border-[#D0D2D1]/60 mb-4">
+              <h3 className="text-xl font-bold text-[#2F3A3F] mb-4 font-sans">
                 {editingGuest ? "Edit Guest" : "Add New Guest"}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-[#402921] mb-2 font-sans">
+                  <label className="block text-sm font-medium text-[#2F3A3F] mb-2 font-sans">
                     Name *
                   </label>
                   <input
                     type="text"
                     value={formData.Name}
                     onChange={(e) => setFormData({ ...formData, Name: e.target.value })}
-                    className="w-full px-4 py-2 border-2 border-[#402921]/20 focus:border-[#402921] rounded-xl text-sm font-sans placeholder:text-[#402921]/40 transition-all duration-300 focus:ring-4 focus:ring-[#402921]/10"
+                    className="w-full px-4 py-2 border-2 border-[#D0D2D1] focus:border-[#818D77] rounded-xl text-sm font-sans placeholder:text-[#2F3A3F]/40 transition-all duration-300 focus:ring-4 focus:ring-[#818D77]/15"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#402921] mb-2 font-sans">
+                  <label className="block text-sm font-medium text-[#2F3A3F] mb-2 font-sans">
                     Email
                   </label>
                   <input
                     type="email"
                     value={formData.Email}
                     onChange={(e) => setFormData({ ...formData, Email: e.target.value })}
-                    className="w-full px-4 py-2 border-2 border-[#402921]/20 focus:border-[#402921] rounded-xl text-sm font-sans placeholder:text-[#402921]/40 transition-all duration-300 focus:ring-4 focus:ring-[#402921]/10"
+                    className="w-full px-4 py-2 border-2 border-[#D0D2D1] focus:border-[#818D77] rounded-xl text-sm font-sans placeholder:text-[#2F3A3F]/40 transition-all duration-300 focus:ring-4 focus:ring-[#818D77]/15"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#402921] mb-2 font-sans">
+                  <label className="block text-sm font-medium text-[#2F3A3F] mb-2 font-sans">
                     RSVP Status *
                   </label>
                   <select
                     value={formData.RSVP}
                     onChange={(e) => setFormData({ ...formData, RSVP: e.target.value })}
-                    className="w-full px-4 py-2 border-2 border-[#402921]/20 focus:border-[#402921] rounded-xl text-sm font-sans bg-white transition-all duration-300 focus:ring-4 focus:ring-[#402921]/10"
+                    className="w-full px-4 py-2 border-2 border-[#D0D2D1] focus:border-[#818D77] rounded-xl text-sm font-sans bg-white transition-all duration-300 focus:ring-4 focus:ring-[#818D77]/15"
                     required
                   >
                     <option value="">Select status</option>
@@ -1133,14 +1133,14 @@ export default function DashboardPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#402921] mb-2 font-sans">
+                  <label className="block text-sm font-medium text-[#2F3A3F] mb-2 font-sans">
                     Message
                   </label>
                   <input
                     type="text"
                     value={formData.Message}
                     onChange={(e) => setFormData({ ...formData, Message: e.target.value })}
-                    className="w-full px-4 py-2 border-2 border-[#402921]/20 focus:border-[#402921] rounded-xl text-sm font-sans placeholder:text-[#402921]/40 transition-all duration-300 focus:ring-4 focus:ring-[#402921]/10"
+                    className="w-full px-4 py-2 border-2 border-[#D0D2D1] focus:border-[#818D77] rounded-xl text-sm font-sans placeholder:text-[#2F3A3F]/40 transition-all duration-300 focus:ring-4 focus:ring-[#818D77]/15"
                   />
                 </div>
               </div>
@@ -1148,7 +1148,7 @@ export default function DashboardPage() {
                 <Button
                   onClick={editingGuest ? handleUpdateGuest : handleAddGuest}
                   disabled={isLoading}
-                  className="bg-gradient-to-r from-[#402921] to-[#583016] hover:from-[#583016] hover:to-[#583016] text-white"
+                  className="bg-gradient-to-r from-[#8096AE] to-[#818D77] hover:from-[#818D77] hover:to-[#8096AE] text-white"
                 >
                   {isLoading ? <RefreshCw className="h-4 w-4 animate-spin" /> : "Save"}
                 </Button>
@@ -1161,22 +1161,22 @@ export default function DashboardPage() {
         </div>
 
         {/* Guest List */}
-        <div className="bg-white rounded-2xl shadow-md border border-[#BB8A3D]/20 overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-md border border-[#D0D2D1]/60 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gradient-to-r from-[#BB8A3D]/10 to-[#CDAC77]/10">
+              <thead className="bg-gradient-to-r from-[#8096AE]/10 to-[#818D77]/10">
                 <tr>
-                  <th className="text-left px-6 py-4 text-sm font-bold text-[#402921] font-sans">Name</th>
-                  <th className="text-left px-6 py-4 text-sm font-bold text-[#402921] font-sans">Email</th>
-                  <th className="text-center px-6 py-4 text-sm font-bold text-[#402921] font-sans">RSVP</th>
-                  <th className="text-left px-6 py-4 text-sm font-bold text-[#402921] font-sans">Message</th>
-                  <th className="text-center px-6 py-4 text-sm font-bold text-[#402921] font-sans">Actions</th>
+                  <th className="text-left px-6 py-4 text-sm font-bold text-[#2F3A3F] font-sans">Name</th>
+                  <th className="text-left px-6 py-4 text-sm font-bold text-[#2F3A3F] font-sans">Email</th>
+                  <th className="text-center px-6 py-4 text-sm font-bold text-[#2F3A3F] font-sans">RSVP</th>
+                  <th className="text-left px-6 py-4 text-sm font-bold text-[#2F3A3F] font-sans">Message</th>
+                  <th className="text-center px-6 py-4 text-sm font-bold text-[#2F3A3F] font-sans">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#402921]/10">
+              <tbody className="divide-y divide-[#D0D2D1]/60">
                 {filteredGuests.length === 0 ? (
                   <tr>
-                    <td colSpan={5} className="px-6 py-12 text-center text-[#402921]/60 font-sans">
+                    <td colSpan={5} className="px-6 py-12 text-center text-[#2F3A3F]/60 font-sans">
                       {isLoading ? (
                         <div className="flex items-center justify-center gap-2">
                           <RefreshCw className="h-5 w-5 animate-spin" />
@@ -1189,9 +1189,9 @@ export default function DashboardPage() {
                   </tr>
                 ) : (
                   filteredGuests.map((guest, index) => (
-                    <tr key={index} className="hover:bg-[#FFF6E7]/30 transition-colors">
-                      <td className="px-6 py-4 font-medium text-[#402921] font-sans">{guest.Name}</td>
-                      <td className="px-6 py-4 text-[#402921]/70 font-sans">
+                    <tr key={index} className="hover:bg-[#F3F5F7] transition-colors">
+                      <td className="px-6 py-4 font-medium text-[#2F3A3F] font-sans">{guest.Name}</td>
+                      <td className="px-6 py-4 text-[#2F3A3F]/70 font-sans">
                         {guest.Email && guest.Email !== "Pending" ? guest.Email : "-"}
                       </td>
                       <td className="px-6 py-4 text-center">
@@ -1219,14 +1219,14 @@ export default function DashboardPage() {
                           </span>
                         ) : null}
                       </td>
-                      <td className="px-6 py-4 text-[#402921]/70 font-sans max-w-xs truncate">
+                      <td className="px-6 py-4 text-[#2F3A3F]/70 font-sans max-w-xs truncate">
                         {guest.Message || "-"}
                       </td>
                       <td className="px-6 py-4 text-center">
                         <div className="flex items-center justify-center gap-2">
                           <button
                             onClick={() => handleEditClick(guest)}
-                            className="p-2 text-[#BB8A3D] hover:bg-[#BB8A3D]/10 rounded-lg transition-colors"
+                            className="p-2 text-[#8096AE] hover:bg-[#8096AE]/10 rounded-lg transition-colors"
                             title="Edit guest"
                           >
                             <Edit2 className="h-4 w-4" />
@@ -1259,17 +1259,17 @@ export default function DashboardPage() {
         {activeTab === "requests" && (
           <>
             {/* Search Section */}
-            <div className="bg-white rounded-2xl p-6 shadow-md border border-[#BB8A3D]/20 mb-6">
+            <div className="bg-white rounded-2xl p-6 shadow-md border border-[#D0D2D1]/60 mb-6">
               <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between mb-4">
                 <div className="flex-1 w-full">
                   <div className="relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#402921]/40" />
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#2F3A3F]/40" />
                     <input
                       type="text"
                       value={searchRequestQuery}
                       onChange={(e) => setSearchRequestQuery(e.target.value)}
                       placeholder="Search requests by name or email..."
-                      className="w-full pl-10 pr-4 py-2 border-2 border-[#402921]/20 focus:border-[#402921] rounded-xl font-sans placeholder:text-[#402921]/40 transition-all duration-300 focus:ring-4 focus:ring-[#402921]/10"
+                      className="w-full pl-10 pr-4 py-2 border-2 border-[#D0D2D1] focus:border-[#818D77] rounded-xl font-sans placeholder:text-[#2F3A3F]/40 transition-all duration-300 focus:ring-4 focus:ring-[#818D77]/15"
                     />
                   </div>
                 </div>
@@ -1292,54 +1292,54 @@ export default function DashboardPage() {
 
               {/* Edit Form */}
               {editingRequest && (
-                <div className="bg-[#FFF6E7]/50 rounded-xl p-6 border-2 border-[#BB8A3D]/30 mb-4">
-                  <h3 className="text-xl font-bold text-[#402921] mb-4 font-sans">
+                <div className="bg-white/60 rounded-xl p-6 border border-[#D0D2D1]/60 mb-4">
+                  <h3 className="text-xl font-bold text-[#2F3A3F] mb-4 font-sans">
                     Edit Request
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-[#402921] mb-2 font-sans">
+                      <label className="block text-sm font-medium text-[#2F3A3F] mb-2 font-sans">
                         Name *
                       </label>
                       <input
                         type="text"
                         value={requestFormData.Name}
                         onChange={(e) => setRequestFormData({ ...requestFormData, Name: e.target.value })}
-                        className="w-full px-4 py-2 border-2 border-[#402921]/20 focus:border-[#402921] rounded-xl text-sm font-sans placeholder:text-[#402921]/40 transition-all duration-300 focus:ring-4 focus:ring-[#402921]/10"
+                        className="w-full px-4 py-2 border-2 border-[#D0D2D1] focus:border-[#818D77] rounded-xl text-sm font-sans placeholder:text-[#2F3A3F]/40 transition-all duration-300 focus:ring-4 focus:ring-[#818D77]/15"
                         required
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-[#402921] mb-2 font-sans">
+                      <label className="block text-sm font-medium text-[#2F3A3F] mb-2 font-sans">
                         Email *
                       </label>
                       <input
                         type="email"
                         value={requestFormData.Email}
                         onChange={(e) => setRequestFormData({ ...requestFormData, Email: e.target.value })}
-                        className="w-full px-4 py-2 border-2 border-[#402921]/20 focus:border-[#402921] rounded-xl text-sm font-sans placeholder:text-[#402921]/40 transition-all duration-300 focus:ring-4 focus:ring-[#402921]/10"
+                        className="w-full px-4 py-2 border-2 border-[#D0D2D1] focus:border-[#818D77] rounded-xl text-sm font-sans placeholder:text-[#2F3A3F]/40 transition-all duration-300 focus:ring-4 focus:ring-[#818D77]/15"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-[#402921] mb-2 font-sans">
+                      <label className="block text-sm font-medium text-[#2F3A3F] mb-2 font-sans">
                         Phone
                       </label>
                       <input
                         type="tel"
                         value={requestFormData.Phone}
                         onChange={(e) => setRequestFormData({ ...requestFormData, Phone: e.target.value })}
-                        className="w-full px-4 py-2 border-2 border-[#402921]/20 focus:border-[#402921] rounded-xl text-sm font-sans placeholder:text-[#402921]/40 transition-all duration-300 focus:ring-4 focus:ring-[#402921]/10"
+                        className="w-full px-4 py-2 border-2 border-[#D0D2D1] focus:border-[#818D77] rounded-xl text-sm font-sans placeholder:text-[#2F3A3F]/40 transition-all duration-300 focus:ring-4 focus:ring-[#818D77]/15"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-[#402921] mb-2 font-sans">
+                      <label className="block text-sm font-medium text-[#2F3A3F] mb-2 font-sans">
                         Message
                       </label>
                       <input
                         type="text"
                         value={requestFormData.Message}
                         onChange={(e) => setRequestFormData({ ...requestFormData, Message: e.target.value })}
-                        className="w-full px-4 py-2 border-2 border-[#402921]/20 focus:border-[#402921] rounded-xl text-sm font-sans placeholder:text-[#402921]/40 transition-all duration-300 focus:ring-4 focus:ring-[#402921]/10"
+                        className="w-full px-4 py-2 border-2 border-[#D0D2D1] focus:border-[#818D77] rounded-xl text-sm font-sans placeholder:text-[#2F3A3F]/40 transition-all duration-300 focus:ring-4 focus:ring-[#818D77]/15"
                       />
                     </div>
                   </div>
@@ -1347,7 +1347,7 @@ export default function DashboardPage() {
                     <Button
                       onClick={handleUpdateRequest}
                       disabled={isLoading}
-                      className="bg-gradient-to-r from-[#402921] to-[#583016] hover:from-[#583016] hover:to-[#583016] text-white"
+                      className="bg-gradient-to-r from-[#8096AE] to-[#818D77] hover:from-[#818D77] hover:to-[#8096AE] text-white"
                     >
                       {isLoading ? <RefreshCw className="h-4 w-4 animate-spin" /> : "Save"}
                     </Button>
@@ -1360,22 +1360,22 @@ export default function DashboardPage() {
             </div>
 
             {/* Requests List */}
-            <div className="bg-white rounded-2xl shadow-md border border-[#BB8A3D]/20 overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-md border border-[#D0D2D1]/60 overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gradient-to-r from-[#BB8A3D]/10 to-[#CDAC77]/10">
+                  <thead className="bg-gradient-to-r from-[#8096AE]/10 to-[#818D77]/10">
                     <tr>
-                      <th className="text-left px-6 py-4 text-sm font-bold text-[#402921] font-sans">Name</th>
-                      <th className="text-left px-6 py-4 text-sm font-bold text-[#402921] font-sans">Email</th>
-                      <th className="text-left px-6 py-4 text-sm font-bold text-[#402921] font-sans">Phone</th>
-                      <th className="text-left px-6 py-4 text-sm font-bold text-[#402921] font-sans">Message</th>
-                      <th className="text-center px-6 py-4 text-sm font-bold text-[#402921] font-sans">Actions</th>
+                      <th className="text-left px-6 py-4 text-sm font-bold text-[#2F3A3F] font-sans">Name</th>
+                      <th className="text-left px-6 py-4 text-sm font-bold text-[#2F3A3F] font-sans">Email</th>
+                      <th className="text-left px-6 py-4 text-sm font-bold text-[#2F3A3F] font-sans">Phone</th>
+                      <th className="text-left px-6 py-4 text-sm font-bold text-[#2F3A3F] font-sans">Message</th>
+                      <th className="text-center px-6 py-4 text-sm font-bold text-[#2F3A3F] font-sans">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#402921]/10">
+                  <tbody className="divide-y divide-[#D0D2D1]/60">
                     {filteredRequests.length === 0 ? (
                       <tr>
-                        <td colSpan={5} className="px-6 py-12 text-center text-[#402921]/60 font-sans">
+                        <td colSpan={5} className="px-6 py-12 text-center text-[#2F3A3F]/60 font-sans">
                           {isLoading ? (
                             <div className="flex items-center justify-center gap-2">
                               <RefreshCw className="h-5 w-5 animate-spin" />
@@ -1388,15 +1388,15 @@ export default function DashboardPage() {
                       </tr>
                     ) : (
                       filteredRequests.map((request, index) => (
-                        <tr key={index} className="hover:bg-[#FFF6E7]/30 transition-colors">
-                          <td className="px-6 py-4 font-medium text-[#402921] font-sans">{request.Name}</td>
-                          <td className="px-6 py-4 text-[#402921]/70 font-sans">
+                        <tr key={index} className="hover:bg-[#F3F5F7] transition-colors">
+                          <td className="px-6 py-4 font-medium text-[#2F3A3F] font-sans">{request.Name}</td>
+                          <td className="px-6 py-4 text-[#2F3A3F]/70 font-sans">
                             {request.Email && request.Email !== "Pending" ? request.Email : "-"}
                           </td>
-                          <td className="px-6 py-4 text-[#402921]/70 font-sans">
+                          <td className="px-6 py-4 text-[#2F3A3F]/70 font-sans">
                             {request.Phone || "-"}
                           </td>
-                          <td className="px-6 py-4 text-[#402921]/70 font-sans max-w-xs truncate">
+                          <td className="px-6 py-4 text-[#2F3A3F]/70 font-sans max-w-xs truncate">
                             {request.Message || "-"}
                           </td>
                           <td className="px-6 py-4 text-center">
@@ -1410,7 +1410,7 @@ export default function DashboardPage() {
                               </button>
                               <button
                                 onClick={() => handleEditRequestClick(request)}
-                                className="p-2 text-[#BB8A3D] hover:bg-[#BB8A3D]/10 rounded-lg transition-colors"
+                                className="p-2 text-[#8096AE] hover:bg-[#8096AE]/10 rounded-lg transition-colors"
                                 title="Edit request"
                               >
                                 <Edit2 className="h-4 w-4" />
@@ -1443,17 +1443,17 @@ export default function DashboardPage() {
         {activeTab === "entourage" && (
           <>
             {/* Search Section */}
-            <div className="bg-white rounded-2xl p-6 shadow-md border border-[#BB8A3D]/20 mb-6">
+            <div className="bg-white rounded-2xl p-6 shadow-md border border-[#D0D2D1]/60 mb-6">
               <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between mb-4">
                 <div className="flex-1 w-full">
                   <div className="relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#402921]/40" />
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#2F3A3F]/40" />
                     <input
                       type="text"
                       value={searchEntourageQuery}
                       onChange={(e) => setSearchEntourageQuery(e.target.value)}
                       placeholder="Search entourage by name, role, or email..."
-                      className="w-full pl-10 pr-4 py-2 border-2 border-[#402921]/20 focus:border-[#402921] rounded-xl font-sans placeholder:text-[#402921]/40 transition-all duration-300 focus:ring-4 focus:ring-[#402921]/10"
+                      className="w-full pl-10 pr-4 py-2 border-2 border-[#D0D2D1] focus:border-[#818D77] rounded-xl font-sans placeholder:text-[#2F3A3F]/40 transition-all duration-300 focus:ring-4 focus:ring-[#818D77]/15"
                     />
                   </div>
                 </div>
@@ -1463,7 +1463,7 @@ export default function DashboardPage() {
                     setEditingEntourage(null)
                     setEntourageFormData({ Name: "", RoleCategory: "", RoleTitle: "", Email: "" })
                   }}
-                  className="bg-gradient-to-r from-[#402921] to-[#583016] hover:from-[#583016] hover:to-[#583016] text-white"
+                  className="bg-gradient-to-r from-[#8096AE] to-[#818D77] hover:from-[#818D77] hover:to-[#8096AE] text-white"
                 >
                   <Plus className="h-4 w-4 mr-2" />
                   Add Member
@@ -1487,25 +1487,25 @@ export default function DashboardPage() {
 
               {/* Add/Edit Form */}
               {(showEntourageForm || editingEntourage) && (
-                <div className="bg-[#FFF6E7]/50 rounded-xl p-6 border-2 border-[#BB8A3D]/30 mb-4">
-                  <h3 className="text-xl font-bold text-[#402921] mb-4 font-sans">
+                <div className="bg-white/60 rounded-xl p-6 border border-[#D0D2D1]/60 mb-4">
+                  <h3 className="text-xl font-bold text-[#2F3A3F] mb-4 font-sans">
                     {editingEntourage ? "Edit Entourage Member" : "Add New Entourage Member"}
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-[#402921] mb-2 font-sans">
+                      <label className="block text-sm font-medium text-[#2F3A3F] mb-2 font-sans">
                         Name *
                       </label>
                       <input
                         type="text"
                         value={entourageFormData.Name}
                         onChange={(e) => setEntourageFormData({ ...entourageFormData, Name: e.target.value })}
-                        className="w-full px-4 py-2 border-2 border-[#402921]/20 focus:border-[#402921] rounded-xl text-sm font-sans placeholder:text-[#402921]/40 transition-all duration-300 focus:ring-4 focus:ring-[#402921]/10"
+                        className="w-full px-4 py-2 border-2 border-[#D0D2D1] focus:border-[#818D77] rounded-xl text-sm font-sans placeholder:text-[#2F3A3F]/40 transition-all duration-300 focus:ring-4 focus:ring-[#818D77]/15"
                         required
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-[#402921] mb-2 font-sans">
+                      <label className="block text-sm font-medium text-[#2F3A3F] mb-2 font-sans">
                         Role Category
                       </label>
                       <input
@@ -1513,11 +1513,11 @@ export default function DashboardPage() {
                         value={entourageFormData.RoleCategory}
                         onChange={(e) => setEntourageFormData({ ...entourageFormData, RoleCategory: e.target.value })}
                         placeholder="e.g., Wedding Party, Family"
-                        className="w-full px-4 py-2 border-2 border-[#402921]/20 focus:border-[#402921] rounded-xl text-sm font-sans placeholder:text-[#402921]/40 transition-all duration-300 focus:ring-4 focus:ring-[#402921]/10"
+                        className="w-full px-4 py-2 border-2 border-[#D0D2D1] focus:border-[#818D77] rounded-xl text-sm font-sans placeholder:text-[#2F3A3F]/40 transition-all duration-300 focus:ring-4 focus:ring-[#818D77]/15"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-[#402921] mb-2 font-sans">
+                      <label className="block text-sm font-medium text-[#2F3A3F] mb-2 font-sans">
                         Role Title
                       </label>
                       <input
@@ -1525,11 +1525,11 @@ export default function DashboardPage() {
                         value={entourageFormData.RoleTitle}
                         onChange={(e) => setEntourageFormData({ ...entourageFormData, RoleTitle: e.target.value })}
                         placeholder="e.g., Best Man, Maid of Honor"
-                        className="w-full px-4 py-2 border-2 border-[#402921]/20 focus:border-[#402921] rounded-xl text-sm font-sans placeholder:text-[#402921]/40 transition-all duration-300 focus:ring-4 focus:ring-[#402921]/10"
+                        className="w-full px-4 py-2 border-2 border-[#D0D2D1] focus:border-[#818D77] rounded-xl text-sm font-sans placeholder:text-[#2F3A3F]/40 transition-all duration-300 focus:ring-4 focus:ring-[#818D77]/15"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-[#402921] mb-2 font-sans">
+                      <label className="block text-sm font-medium text-[#2F3A3F] mb-2 font-sans">
                         Email
                       </label>
                       <input
@@ -1537,7 +1537,7 @@ export default function DashboardPage() {
                         value={entourageFormData.Email}
                         onChange={(e) => setEntourageFormData({ ...entourageFormData, Email: e.target.value })}
                         placeholder="email@example.com"
-                        className="w-full px-4 py-2 border-2 border-[#402921]/20 focus:border-[#402921] rounded-xl text-sm font-sans placeholder:text-[#402921]/40 transition-all duration-300 focus:ring-4 focus:ring-[#402921]/10"
+                        className="w-full px-4 py-2 border-2 border-[#D0D2D1] focus:border-[#818D77] rounded-xl text-sm font-sans placeholder:text-[#2F3A3F]/40 transition-all duration-300 focus:ring-4 focus:ring-[#818D77]/15"
                       />
                     </div>
                   </div>
@@ -1545,7 +1545,7 @@ export default function DashboardPage() {
                     <Button
                       onClick={editingEntourage ? handleUpdateEntourage : handleAddEntourage}
                       disabled={isLoading}
-                      className="bg-gradient-to-r from-[#402921] to-[#583016] hover:from-[#583016] hover:to-[#583016] text-white"
+                      className="bg-gradient-to-r from-[#8096AE] to-[#818D77] hover:from-[#818D77] hover:to-[#8096AE] text-white"
                     >
                       {isLoading ? <RefreshCw className="h-4 w-4 animate-spin" /> : (editingEntourage ? "Update" : "Add")}
                     </Button>
@@ -1558,22 +1558,22 @@ export default function DashboardPage() {
             </div>
 
             {/* Entourage List */}
-            <div className="bg-white rounded-2xl shadow-md border border-[#BB8A3D]/20 overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-md border border-[#D0D2D1]/60 overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gradient-to-r from-[#BB8A3D]/10 to-[#CDAC77]/10">
+                  <thead className="bg-gradient-to-r from-[#8096AE]/10 to-[#818D77]/10">
                     <tr>
-                      <th className="text-left px-6 py-4 text-sm font-bold text-[#402921] font-sans">Name</th>
-                      <th className="text-left px-6 py-4 text-sm font-bold text-[#402921] font-sans">Role Category</th>
-                      <th className="text-left px-6 py-4 text-sm font-bold text-[#402921] font-sans">Role Title</th>
-                      <th className="text-left px-6 py-4 text-sm font-bold text-[#402921] font-sans">Email</th>
-                      <th className="text-center px-6 py-4 text-sm font-bold text-[#402921] font-sans">Actions</th>
+                      <th className="text-left px-6 py-4 text-sm font-bold text-[#2F3A3F] font-sans">Name</th>
+                      <th className="text-left px-6 py-4 text-sm font-bold text-[#2F3A3F] font-sans">Role Category</th>
+                      <th className="text-left px-6 py-4 text-sm font-bold text-[#2F3A3F] font-sans">Role Title</th>
+                      <th className="text-left px-6 py-4 text-sm font-bold text-[#2F3A3F] font-sans">Email</th>
+                      <th className="text-center px-6 py-4 text-sm font-bold text-[#2F3A3F] font-sans">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#402921]/10">
+                  <tbody className="divide-y divide-[#D0D2D1]/60">
                     {filteredEntourage.length === 0 ? (
                       <tr>
-                        <td colSpan={5} className="px-6 py-12 text-center text-[#402921]/60 font-sans">
+                        <td colSpan={5} className="px-6 py-12 text-center text-[#2F3A3F]/60 font-sans">
                           {isLoading ? (
                             <div className="flex items-center justify-center gap-2">
                               <RefreshCw className="h-5 w-5 animate-spin" />
@@ -1586,22 +1586,22 @@ export default function DashboardPage() {
                       </tr>
                     ) : (
                       filteredEntourage.map((member, index) => (
-                        <tr key={index} className="hover:bg-[#FFF6E7]/30 transition-colors">
-                          <td className="px-6 py-4 font-medium text-[#402921] font-sans">{member.Name}</td>
-                          <td className="px-6 py-4 text-[#402921]/70 font-sans">
+                        <tr key={index} className="hover:bg-[#F3F5F7] transition-colors">
+                          <td className="px-6 py-4 font-medium text-[#2F3A3F] font-sans">{member.Name}</td>
+                          <td className="px-6 py-4 text-[#2F3A3F]/70 font-sans">
                             {member.RoleCategory || "-"}
                           </td>
-                          <td className="px-6 py-4 text-[#402921]/70 font-sans">
+                          <td className="px-6 py-4 text-[#2F3A3F]/70 font-sans">
                             {member.RoleTitle || "-"}
                           </td>
-                          <td className="px-6 py-4 text-[#402921]/70 font-sans">
+                          <td className="px-6 py-4 text-[#2F3A3F]/70 font-sans">
                             {member.Email && member.Email !== "Pending" ? member.Email : "-"}
                           </td>
                           <td className="px-6 py-4 text-center">
                             <div className="flex items-center justify-center gap-2">
                               <button
                                 onClick={() => handleEditEntourageClick(member)}
-                                className="p-2 text-[#BB8A3D] hover:bg-[#BB8A3D]/10 rounded-lg transition-colors"
+                                className="p-2 text-[#8096AE] hover:bg-[#8096AE]/10 rounded-lg transition-colors"
                                 title="Edit member"
                               >
                                 <Edit2 className="h-4 w-4" />
@@ -1634,17 +1634,17 @@ export default function DashboardPage() {
         {activeTab === "principalsponsor" && (
           <>
             {/* Search Section */}
-            <div className="bg-white rounded-2xl p-6 shadow-md border border-[#BB8A3D]/20 mb-6">
+            <div className="bg-white rounded-2xl p-6 shadow-md border border-[#D0D2D1]/60 mb-6">
               <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between mb-4">
                 <div className="flex-1 w-full">
                   <div className="relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#402921]/40" />
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#2F3A3F]/40" />
                     <input
                       type="text"
                       value={searchPrincipalSponsorQuery}
                       onChange={(e) => setSearchPrincipalSponsorQuery(e.target.value)}
                       placeholder="Search by name..."
-                      className="w-full pl-10 pr-4 py-2 border-2 border-[#402921]/20 focus:border-[#402921] rounded-xl font-sans placeholder:text-[#402921]/40 transition-all duration-300 focus:ring-4 focus:ring-[#402921]/10"
+                      className="w-full pl-10 pr-4 py-2 border-2 border-[#D0D2D1] focus:border-[#818D77] rounded-xl font-sans placeholder:text-[#2F3A3F]/40 transition-all duration-300 focus:ring-4 focus:ring-[#818D77]/15"
                     />
                   </div>
                 </div>
@@ -1654,7 +1654,7 @@ export default function DashboardPage() {
                     setEditingPrincipalSponsor(null)
                     setPrincipalSponsorFormData({ MalePrincipalSponsor: "", FemalePrincipalSponsor: "" })
                   }}
-                  className="bg-gradient-to-r from-[#402921] to-[#583016] hover:from-[#583016] hover:to-[#583016] text-white"
+                  className="bg-gradient-to-r from-[#8096AE] to-[#818D77] hover:from-[#818D77] hover:to-[#8096AE] text-white"
                 >
                   <Plus className="h-4 w-4 mr-2" />
                   Add Sponsors
@@ -1678,32 +1678,32 @@ export default function DashboardPage() {
 
               {/* Add/Edit Form */}
               {(showPrincipalSponsorForm || editingPrincipalSponsor) && (
-                <div className="bg-[#FFF6E7]/50 rounded-xl p-6 border-2 border-[#BB8A3D]/30 mb-4">
-                  <h3 className="text-xl font-bold text-[#402921] mb-4 font-sans">
+                <div className="bg-white/60 rounded-xl p-6 border border-[#D0D2D1]/60 mb-4">
+                  <h3 className="text-xl font-bold text-[#2F3A3F] mb-4 font-sans">
                     {editingPrincipalSponsor ? "Edit Principal Sponsors" : "Add New Principal Sponsors"}
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-[#402921] mb-2 font-sans">
+                      <label className="block text-sm font-medium text-[#2F3A3F] mb-2 font-sans">
                         Male Principal Sponsor *
                       </label>
                       <input
                         type="text"
                         value={principalSponsorFormData.MalePrincipalSponsor}
                         onChange={(e) => setPrincipalSponsorFormData({ ...principalSponsorFormData, MalePrincipalSponsor: e.target.value })}
-                        className="w-full px-4 py-2 border-2 border-[#402921]/20 focus:border-[#402921] rounded-xl text-sm font-sans placeholder:text-[#402921]/40 transition-all duration-300 focus:ring-4 focus:ring-[#402921]/10"
+                        className="w-full px-4 py-2 border-2 border-[#D0D2D1] focus:border-[#818D77] rounded-xl text-sm font-sans placeholder:text-[#2F3A3F]/40 transition-all duration-300 focus:ring-4 focus:ring-[#818D77]/15"
                         required
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-[#402921] mb-2 font-sans">
+                      <label className="block text-sm font-medium text-[#2F3A3F] mb-2 font-sans">
                         Female Principal Sponsor
                       </label>
                       <input
                         type="text"
                         value={principalSponsorFormData.FemalePrincipalSponsor}
                         onChange={(e) => setPrincipalSponsorFormData({ ...principalSponsorFormData, FemalePrincipalSponsor: e.target.value })}
-                        className="w-full px-4 py-2 border-2 border-[#402921]/20 focus:border-[#402921] rounded-xl text-sm font-sans placeholder:text-[#402921]/40 transition-all duration-300 focus:ring-4 focus:ring-[#402921]/10"
+                        className="w-full px-4 py-2 border-2 border-[#D0D2D1] focus:border-[#818D77] rounded-xl text-sm font-sans placeholder:text-[#2F3A3F]/40 transition-all duration-300 focus:ring-4 focus:ring-[#818D77]/15"
                       />
                     </div>
                   </div>
@@ -1711,7 +1711,7 @@ export default function DashboardPage() {
                     <Button
                       onClick={editingPrincipalSponsor ? handleUpdatePrincipalSponsor : handleAddPrincipalSponsor}
                       disabled={isLoading}
-                      className="bg-gradient-to-r from-[#402921] to-[#583016] hover:from-[#583016] hover:to-[#583016] text-white"
+                      className="bg-gradient-to-r from-[#8096AE] to-[#818D77] hover:from-[#818D77] hover:to-[#8096AE] text-white"
                     >
                       {isLoading ? <RefreshCw className="h-4 w-4 animate-spin" /> : (editingPrincipalSponsor ? "Update" : "Add")}
                     </Button>
@@ -1724,20 +1724,20 @@ export default function DashboardPage() {
             </div>
 
             {/* PrincipalSponsor List */}
-            <div className="bg-white rounded-2xl shadow-md border border-[#BB8A3D]/20 overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-md border border-[#D0D2D1]/60 overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gradient-to-r from-[#BB8A3D]/10 to-[#CDAC77]/10">
+                  <thead className="bg-gradient-to-r from-[#8096AE]/10 to-[#818D77]/10">
                     <tr>
-                      <th className="text-left px-6 py-4 text-sm font-bold text-[#402921] font-sans">Male Principal Sponsor</th>
-                      <th className="text-left px-6 py-4 text-sm font-bold text-[#402921] font-sans">Female Principal Sponsor</th>
-                      <th className="text-center px-6 py-4 text-sm font-bold text-[#402921] font-sans">Actions</th>
+                      <th className="text-left px-6 py-4 text-sm font-bold text-[#2F3A3F] font-sans">Male Principal Sponsor</th>
+                      <th className="text-left px-6 py-4 text-sm font-bold text-[#2F3A3F] font-sans">Female Principal Sponsor</th>
+                      <th className="text-center px-6 py-4 text-sm font-bold text-[#2F3A3F] font-sans">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#402921]/10">
+                  <tbody className="divide-y divide-[#D0D2D1]/60">
                     {filteredPrincipalSponsors.length === 0 ? (
                       <tr>
-                        <td colSpan={3} className="px-6 py-12 text-center text-[#402921]/60 font-sans">
+                        <td colSpan={3} className="px-6 py-12 text-center text-[#2F3A3F]/60 font-sans">
                           {isLoading ? (
                             <div className="flex items-center justify-center gap-2">
                               <RefreshCw className="h-5 w-5 animate-spin" />
@@ -1750,16 +1750,16 @@ export default function DashboardPage() {
                       </tr>
                     ) : (
                       filteredPrincipalSponsors.map((sponsor, index) => (
-                        <tr key={index} className="hover:bg-[#FFF6E7]/30 transition-colors">
-                          <td className="px-6 py-4 font-medium text-[#402921] font-sans">{sponsor.MalePrincipalSponsor}</td>
-                          <td className="px-6 py-4 text-[#402921]/70 font-sans">
+                        <tr key={index} className="hover:bg-[#F3F5F7] transition-colors">
+                          <td className="px-6 py-4 font-medium text-[#2F3A3F] font-sans">{sponsor.MalePrincipalSponsor}</td>
+                          <td className="px-6 py-4 text-[#2F3A3F]/70 font-sans">
                             {sponsor.FemalePrincipalSponsor || "-"}
                           </td>
                           <td className="px-6 py-4 text-center">
                             <div className="flex items-center justify-center gap-2">
                               <button
                                 onClick={() => handleEditPrincipalSponsorClick(sponsor)}
-                                className="p-2 text-[#BB8A3D] hover:bg-[#BB8A3D]/10 rounded-lg transition-colors"
+                                className="p-2 text-[#8096AE] hover:bg-[#8096AE]/10 rounded-lg transition-colors"
                                 title="Edit sponsors"
                               >
                                 <Edit2 className="h-4 w-4" />
@@ -1809,15 +1809,15 @@ function ConfirmModal({ open, title, message, onCancel, onConfirm }: { open: boo
   if (!open) return null
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/50">
-      <div className="w-full max-w-sm bg-white rounded-2xl shadow-2xl border border-[#BB8A3D]/30">
-        <div className="px-5 py-4 border-b border-[#BB8A3D]/20">
-          <h3 className="text-base sm:text-lg font-bold text-[#402921]">{title}</h3>
+      <div className="w-full max-w-sm bg-white rounded-2xl shadow-2xl border border-[#D0D2D1]/60">
+        <div className="px-5 py-4 border-b border-[#D0D2D1]/60">
+          <h3 className="text-base sm:text-lg font-bold text-[#2F3A3F]">{title}</h3>
         </div>
-        <div className="px-5 py-4 text-sm sm:text-base text-[#402921]/80">
+        <div className="px-5 py-4 text-sm sm:text-base text-[#2F3A3F]/80">
           {message}
         </div>
-        <div className="px-5 py-4 flex justify-end gap-2 border-t border-[#BB8A3D]/20">
-          <button onClick={onCancel} className="px-3 py-2 text-sm rounded-lg border border-[#402921]/20 text-[#402921] hover:bg-[#FFF6E7]">Cancel</button>
+        <div className="px-5 py-4 flex justify-end gap-2 border-t border-[#D0D2D1]/60">
+          <button onClick={onCancel} className="px-3 py-2 text-sm rounded-lg border border-[#D0D2D1] text-[#2F3A3F] hover:bg-[#F3F5F7]">Cancel</button>
           <button onClick={onConfirm} className="px-3 py-2 text-sm rounded-lg bg-red-600 text-white hover:bg-red-700">Delete</button>
         </div>
       </div>
