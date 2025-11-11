@@ -208,7 +208,7 @@ export function Narrative() {
             {/* Enhanced CTA Button */}
             <div className="flex justify-center">
               <motion.a
-                href="#rsvp"
+                href="#guest-list"
                 className="group relative w-full sm:w-auto px-8 sm:px-12 md:px-16 py-5 sm:py-6 md:py-7 bg-[#8096AE] text-white font-sans font-bold text-base sm:text-lg md:text-xl lg:text-2xl rounded-[2rem] transition-all duration-500 text-center overflow-hidden shadow-xl hover:shadow-2xl border-2 border-[#D0D2D1] hover:border-white"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

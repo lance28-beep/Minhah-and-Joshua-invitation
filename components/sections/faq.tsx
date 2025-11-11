@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, CameraOff, Heart } from "lucide-react"
 
 interface FAQItem {
   question: string
@@ -12,7 +12,7 @@ const faqItems: FAQItem[] = [
   {
     question: "What are the theme and motif?",
     answer:
-      "Theme: Dusty Blue and Sage Green. Motif colors: #8096AE, #818D77, #B8B8B8, #D0D2D1. [COLOR_PALETTE]",
+      "Theme: Pastel Purple, Pastel Pink, Light yellow, Cream. Motif colors: #D4B3D4, #FFB6C1, #FFFACD, #FFF8DC. [COLOR_PALETTE]",
   },
   {
     question: "What is the dress code?",
@@ -51,6 +51,11 @@ Feel free to choose colors that complement the celebration. Your presence in you
       "While our venue has limited space, we kindly ask that any additional guests be included or declared in your RSVP so we can make the proper arrangements. Thank you so much for your understanding — we can't wait to celebrate together on our special day!",
   },
   {
+    question: "Are children welcome?",
+    answer:
+      "We love your little ones, but our wedding day is for grown-ups only — except for children in the Bride and Groom's immediate family.",
+  },
+  {
     question: "What if I have dietary restrictions or allergies?",
     answer:
       "Please mention any dietary restrictions, allergies, or special meal requirements in the message field when you submit your RSVP.",
@@ -58,7 +63,7 @@ Feel free to choose colors that complement the celebration. Your presence in you
   {
     question: "Can I take photos during the ceremony?",
     answer:
-      "We have a professional photographer, but you're welcome to take photos! We'll have a dedicated time for group photos after the ceremony.",
+      "We're having an unplugged ceremony! Phones down, hearts open! Please join us in the moment as we say our vows. Our photographers will take care of the memories. You just enjoy the love around you. We'll have a dedicated time for group photos after the ceremony.",
   },
   {
     question: "What should I do if I need to cancel my RSVP?",
@@ -143,6 +148,46 @@ export function FAQ() {
       {/* FAQ content */}
       <div className="relative z-10 px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
+          {/* Unplugged Ceremony Notice */}
+          <div className="mb-6 sm:mb-8 relative">
+            <div className="rounded-xl sm:rounded-2xl bg-gradient-to-br from-white/95 to-white/90 backdrop-blur-md p-5 sm:p-6 md:p-8 shadow-xl border-2 border-[#8096AE]/30 relative overflow-hidden">
+              {/* Decorative background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#8096AE]/5 to-[#818D77]/5" />
+              
+              {/* Decorative corner accents */}
+              <div className="absolute -top-1 -left-1 w-6 h-6 bg-gradient-to-br from-[#8096AE] to-[#818D77] rounded-full blur-sm opacity-40" />
+              <div className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-bl from-[#8096AE] to-[#818D77] rounded-full blur-sm opacity-40" />
+              <div className="absolute -bottom-1 -left-1 w-6 h-6 bg-gradient-to-tr from-[#8096AE] to-[#818D77] rounded-full blur-sm opacity-40" />
+              <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-gradient-to-tl from-[#8096AE] to-[#818D77] rounded-full blur-sm opacity-40" />
+              
+              <div className="relative z-10">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <CameraOff className="w-6 h-6 sm:w-7 sm:h-7 text-[#8096AE]" />
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-serif font-bold text-center" style={{ color: '#402921' }}>
+                    Unplugged Ceremony Reminders
+                  </h3>
+                  <CameraOff className="w-6 h-6 sm:w-7 sm:h-7 text-[#8096AE]" />
+                </div>
+                
+                <div className="space-y-3 text-center">
+                  <p className="text-lg sm:text-xl md:text-2xl font-bold" style={{ color: '#402921' }}>
+                    Phones down, hearts open! 💕
+                  </p>
+                  <p className="text-base sm:text-lg leading-relaxed" style={{ color: '#402921' }}>
+                    Join us in the moment as we say our vows.
+                  </p>
+                  <p className="text-base sm:text-lg leading-relaxed" style={{ color: '#402921' }}>
+                    Our photographers will take care of the memories. You just enjoy the love around you.
+                  </p>
+                </div>
+                
+                <div className="flex justify-center mt-4">
+                  <Heart className="w-5 h-5 text-[#8096AE]" />
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="relative bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl border-2 border-[#D0D2D1]">
             {/* Decorative corner accents */}
             <div className="absolute -top-1 -left-1 w-4 h-4 bg-gradient-to-br from-[#BB8A3D] to-[#CDAC77] rounded-full blur-sm opacity-70" />
@@ -190,7 +235,7 @@ export function FAQ() {
                           {item.answer.includes("[COLOR_PALETTE]") ? (
                             <div className="space-y-3">
                               <p className="text-[#0f172a] leading-relaxed text-sm sm:text-base font-lora">
-                                Theme: Dusty Blue and Sage Green.
+                                Theme: Pastel Purple, Pastel Pink, Light yellow, Cream.
                               </p>
                               <div>
                                 <p className="text-[#0f172a] font-semibold text-xs sm:text-sm mb-2">Color Palette:</p>
@@ -198,34 +243,34 @@ export function FAQ() {
                                   <div className="flex items-center gap-2 bg-white/60 px-3 py-2 rounded-lg border border-[#D0D2D1]">
                                     <div 
                                       className="w-8 h-8 rounded-full shadow-md border-2 border-white ring-2 ring-[#D0D2D1]/25" 
-                                      style={{ backgroundColor: '#8096AE' }}
-                                      title="#8096AE"
+                                      style={{ backgroundColor: '#D4B3D4' }}
+                                      title="Pastel Purple"
                                     />
-                                    <span className="text-xs text-[#0f172a] font-medium">#8096AE</span>
+                                    <span className="text-xs text-[#0f172a] font-medium">Pastel Purple</span>
                                   </div>
                                   <div className="flex items-center gap-2 bg-white/60 px-3 py-2 rounded-lg border border-[#D0D2D1]">
                                     <div 
                                       className="w-8 h-8 rounded-full shadow-md border-2 border-white ring-2 ring-[#D0D2D1]/25" 
-                                      style={{ backgroundColor: '#818D77' }}
-                                      title="#818D77"
+                                      style={{ backgroundColor: '#FFB6C1' }}
+                                      title="Pastel Pink"
                                     />
-                                    <span className="text-xs text-[#0f172a] font-medium">#818D77</span>
+                                    <span className="text-xs text-[#0f172a] font-medium">Pastel Pink</span>
                                   </div>
                                   <div className="flex items-center gap-2 bg-white/60 px-3 py-2 rounded-lg border border-[#D0D2D1]">
                                     <div 
                                       className="w-8 h-8 rounded-full shadow-md border-2 border-white ring-2 ring-[#D0D2D1]/25" 
-                                      style={{ backgroundColor: '#B8B8B8' }}
-                                      title="#B8B8B8"
+                                      style={{ backgroundColor: '#FFFACD' }}
+                                      title="Light Yellow"
                                     />
-                                    <span className="text-xs text-[#0f172a] font-medium">#B8B8B8</span>
+                                    <span className="text-xs text-[#0f172a] font-medium">Light Yellow</span>
                                   </div>
                                   <div className="flex items-center gap-2 bg-white/60 px-3 py-2 rounded-lg border border-[#D0D2D1]">
                                     <div 
                                       className="w-8 h-8 rounded-full shadow-md border-2 border-white ring-2 ring-[#D0D2D1]/25" 
-                                      style={{ backgroundColor: '#D0D2D1' }}
-                                      title="#D0D2D1"
+                                      style={{ backgroundColor: '#FFF8DC' }}
+                                      title="Cream"
                                     />
-                                    <span className="text-xs text-[#0f172a] font-medium">#D0D2D1</span>
+                                    <span className="text-xs text-[#0f172a] font-medium">Cream</span>
                                   </div>
                                 </div>
                               </div>

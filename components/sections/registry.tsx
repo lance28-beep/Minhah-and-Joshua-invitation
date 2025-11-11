@@ -25,10 +25,17 @@ export function Registry() {
           </h2>
           <Heart className="w-7 h-7 sm:w-8 sm:h-8 text-[#8096AE]" />
         </div>
-        <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed font-sans max-w-3xl mx-auto px-4">
-          Your presence is the greatest gift we could ever receive.
-However, if you wish to share a monetary blessing, you may do so through:
-        </p>
+        <div className="text-base sm:text-lg md:text-xl text-white leading-relaxed font-sans max-w-3xl mx-auto px-4 space-y-3">
+          <p>
+            Your presence is the best gift we could ever ask for! 💕
+          </p>
+          <p>
+            But if you wish to share a little extra blessing, we kindly prefer a monetary gift to help us begin our new journey.
+          </p>
+          <p>
+            You may also join our Prosperity Dance or scan the QR code.
+          </p>
+        </div>
       </div>
 
       {/* Content */}
@@ -42,8 +49,7 @@ However, if you wish to share a monetary blessing, you may do so through:
               <Heart className="w-6 h-6 text-[#8096AE] ml-2" />
             </div>
             <p className="leading-relaxed text-base sm:text-lg font-normal max-w-2xl mx-auto" style={{ color: '#402921' }}>
-              With all that we have, we are truly blessed. Your presence and prayers are what we request.
-              But if you desire to give nonetheless, monetary gift is the one we suggest.
+              Your presence is the best gift we could ever ask for! 💕 But if you wish to share a little extra blessing, we kindly prefer a monetary gift to help us begin our new journey.
             </p>
           </div>
         </div>
