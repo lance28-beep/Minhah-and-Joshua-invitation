@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown, CameraOff, Heart } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 
 interface FAQItem {
   question: string
@@ -148,46 +148,6 @@ export function FAQ() {
       {/* FAQ content */}
       <div className="relative z-10 px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
-          {/* Unplugged Ceremony Notice */}
-          <div className="mb-6 sm:mb-8 relative">
-            <div className="rounded-xl sm:rounded-2xl bg-gradient-to-br from-white/95 to-white/90 backdrop-blur-md p-5 sm:p-6 md:p-8 shadow-xl border-2 border-[#8096AE]/30 relative overflow-hidden">
-              {/* Decorative background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#8096AE]/5 to-[#818D77]/5" />
-              
-              {/* Decorative corner accents */}
-              <div className="absolute -top-1 -left-1 w-6 h-6 bg-gradient-to-br from-[#8096AE] to-[#818D77] rounded-full blur-sm opacity-40" />
-              <div className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-bl from-[#8096AE] to-[#818D77] rounded-full blur-sm opacity-40" />
-              <div className="absolute -bottom-1 -left-1 w-6 h-6 bg-gradient-to-tr from-[#8096AE] to-[#818D77] rounded-full blur-sm opacity-40" />
-              <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-gradient-to-tl from-[#8096AE] to-[#818D77] rounded-full blur-sm opacity-40" />
-              
-              <div className="relative z-10">
-                <div className="flex items-center justify-center gap-3 mb-4">
-                  <CameraOff className="w-6 h-6 sm:w-7 sm:h-7 text-[#8096AE]" />
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-serif font-bold text-center" style={{ color: '#402921' }}>
-                    Unplugged Ceremony Reminders
-                  </h3>
-                  <CameraOff className="w-6 h-6 sm:w-7 sm:h-7 text-[#8096AE]" />
-                </div>
-                
-                <div className="space-y-3 text-center">
-                  <p className="text-lg sm:text-xl md:text-2xl font-bold" style={{ color: '#402921' }}>
-                    Phones down, hearts open! 💕
-                  </p>
-                  <p className="text-base sm:text-lg leading-relaxed" style={{ color: '#402921' }}>
-                    Join us in the moment as we say our vows.
-                  </p>
-                  <p className="text-base sm:text-lg leading-relaxed" style={{ color: '#402921' }}>
-                    Our photographers will take care of the memories. You just enjoy the love around you.
-                  </p>
-                </div>
-                
-                <div className="flex justify-center mt-4">
-                  <Heart className="w-5 h-5 text-[#8096AE]" />
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div className="relative bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl border-2 border-[#D0D2D1]">
             {/* Decorative corner accents */}
             <div className="absolute -top-1 -left-1 w-4 h-4 bg-gradient-to-br from-[#BB8A3D] to-[#CDAC77] rounded-full blur-sm opacity-70" />
