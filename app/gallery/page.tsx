@@ -1,12 +1,14 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
-import { X, ChevronLeft, ChevronRight, ArrowLeft, Home } from "lucide-react"
+import { X, ChevronLeft, ChevronRight, ArrowLeft, Home, Copy, Check } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import dynamic from "next/dynamic"
 
 const Silk = dynamic(() => import("@/components/silk"), { ssr: false })
+
+const hashtags = ["#aMINAdongIkawNaAngJOSHtoKo", "#JOSHtheOneForMINA"]
 
 // All couple images
 const allGalleryImages = [
@@ -77,6 +79,17 @@ export default function GalleryPage() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [touchStartX, setTouchStartX] = useState<number | null>(null)
   const [touchDeltaX, setTouchDeltaX] = useState(0)
+  const [copiedHashtag, setCopiedHashtag] = useState<string | null>(null)
+
+  const copyToClipboard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text)
+      setCopiedHashtag(text)
+      setTimeout(() => setCopiedHashtag(null), 2000)
+    } catch (err) {
+      console.error("Failed to copy: ", err)
+    }
+  }
 
   const navigateImage = useCallback((direction: 'prev' | 'next') => {
     setCurrentIndex((prevIndex) => {
@@ -150,8 +163,34 @@ export default function GalleryPage() {
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-4 drop-shadow-lg">
             Our Gallery
           </h1>
-          <p className="text-lg md:text-xl text-white/90 font-sans font-light max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-white/90 font-sans font-light max-w-2xl mx-auto mb-6">
             Every moment, a treasured memory made eternal
+          </p>
+          
+          {/* Hashtags */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-6">
+            {hashtags.map((hashtag) => (
+              <div
+                key={hashtag}
+                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full px-4 py-2 border border-white/20 transition-all duration-200 hover:scale-105"
+              >
+                <span className="text-white font-semibold text-sm sm:text-base">{hashtag}</span>
+                <button
+                  onClick={() => copyToClipboard(hashtag)}
+                  className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-200"
+                  title="Copy hashtag"
+                >
+                  {copiedHashtag === hashtag ? (
+                    <Check className="w-4 h-4 text-white" />
+                  ) : (
+                    <Copy className="w-4 h-4 text-white/80" />
+                  )}
+                </button>
+              </div>
+            ))}
+          </div>
+          <p className="text-sm text-white/70 font-sans mt-4 max-w-2xl mx-auto">
+            Use these hashtags on your posts to be featured in our gallery
           </p>
         </div>
 

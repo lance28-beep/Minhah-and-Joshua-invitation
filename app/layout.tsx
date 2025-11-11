@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   description:
     "You're invited to the wedding of Joshua & Minhah! Join us on June 12, 2026 in Bacoor, Cavite, Philippines. RSVP, read our love story, view our gallery, and leave a message for the couple.",
   keywords:
-    "Joshua & Minhah wedding, Filipino wedding, RSVP, wedding gallery, wedding message wall, wedding invitation, 2026 weddings, love story, guestbook, wedding registry, wedding details, wedding venues Bacoor, Cavite, #JoshuaAndMinhahWedding",
+    "Joshua & Minhah wedding, Filipino wedding, RSVP, wedding gallery, wedding message wall, wedding invitation, 2026 weddings, love story, guestbook, wedding registry, wedding details, wedding venues Bacoor, Cavite, #aMINAdongIkawNaAngJOSHtoKo, #JOSHtheOneForMINA",
   authors: [
     { name: "Joshua" },
     { name: "Minhah" },
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Joshua & Minhah Wedding Invitation",
     description:
-      "You're invited to the wedding of Joshua & Minhah! June 12, 2026. RSVP, view our gallery, and leave a message! #JoshuaAndMinhahWedding",
+      "You're invited to the wedding of Joshua & Minhah! June 12, 2026. RSVP, view our gallery, and leave a message! #aMINAdongIkawNaAngJOSHtoKo #JOSHtheOneForMINA",
     images: ["https://Minhah-and-Joshua-invitation.vercel.app/couple.png"],
     creator: "@rachelandarnulfo",
   },
@@ -132,7 +132,7 @@ export const metadata: Metadata = {
         price: "0",
         priceCurrency: "PHP",
       },
-      eventHashtag: "#JoshuaAndMinhahWedding",
+      eventHashtag: "#aMINAdongIkawNaAngJOSHtoKo",
     }),
   },
 }

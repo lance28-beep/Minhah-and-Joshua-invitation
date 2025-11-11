@@ -13,7 +13,7 @@ export function SnapShare() {
   const [isMobile, setIsMobile] = useState(false)
 
   const websiteUrl = typeof window !== "undefined" ? window.location.href : "https://example.com"
-  const hashtags = ["#TheMinhahAndJoshuaWedding", "#ForeverMinhahAndJoshua"]
+  const hashtags = ["#aMINAdongIkawNaAngJOSHtoKo", "#JOSHtheOneForMINA"]
   const shareText = `Join us in celebrating our special day! Check out our wedding website: ${websiteUrl} ${hashtags.join(" ")} 💕`
 
   useEffect(() => {

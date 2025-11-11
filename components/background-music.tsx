@@ -6,50 +6,41 @@ const BackgroundMusic = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null)
 
   useEffect(() => {
-    // Check if music is enabled (via feature flag or user preference)
-    if (process.env.NEXT_PUBLIC_ENABLE_MUSIC === 'false') {
-      return;
+    const handleUserInteraction = () => {
+      const audioEl = audioRef.current
+      if (!audioEl) return
+      audioEl.play().then(() => {
+        document.removeEventListener("click", handleUserInteraction)
+        document.removeEventListener("touchstart", handleUserInteraction)
+      }).catch((error) => {
+        console.log("Playback blocked:", error)
+      })
     }
 
-    // Lazy load audio after page load to not block rendering
-    const loadAudio = () => {
-      const audio = new Audio("/background_music/Kina Grannis ft. Imaginary Future - I Will Spend My Whole Life Loving You (lyrics).mp3")
-      audio.loop = true
-      audio.volume = 0.5
-      audio.preload = 'none' // Don't preload to save bandwidth
-      audioRef.current = audio
-
-      const handleUserInteraction = () => {
-        if (audioRef.current) {
-          audioRef.current.play().catch((error) => {
-            console.log("Autoplay prevented:", error)
-          })
-          document.removeEventListener("click", handleUserInteraction)
-          document.removeEventListener("touchstart", handleUserInteraction)
-        }
-      }
-
-      document.addEventListener("click", handleUserInteraction)
-      document.addEventListener("touchstart", handleUserInteraction)
-    };
-
-    // Delay audio loading until after initial render
-    const timer = setTimeout(loadAudio, 1000);
+    document.addEventListener("click", handleUserInteraction)
+    document.addEventListener("touchstart", handleUserInteraction)
 
     return () => {
-      clearTimeout(timer);
-      if (audioRef.current) {
-        audioRef.current.pause()
-        audioRef.current = null
-      }
-      document.removeEventListener("click", () => {})
-      document.removeEventListener("touchstart", () => {})
+      audioRef.current?.pause()
+      audioRef.current = null
+      document.removeEventListener("click", handleUserInteraction)
+      document.removeEventListener("touchstart", handleUserInteraction)
     }
   }, [])
 
-  return null
+  return (
+    <audio
+      ref={audioRef}
+      // Use an encoded URI to avoid issues with spaces/parentheses on some mobile browsers
+      src={encodeURI("/background_music/Kina Grannis ft. Imaginary Future - I Will Spend My Whole Life Loving You (lyrics).mp3")}
+      loop
+      preload="auto"
+      // playsInline helps iOS treat this as inline media rather than requiring fullscreen behavior
+      playsInline
+      // Keep element non-visible; playback is initiated on first user interaction
+      style={{ display: "none" }}
+    />
+  )
 }
 
 export default BackgroundMusic
-
-
